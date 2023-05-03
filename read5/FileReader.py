@@ -165,6 +165,19 @@ class FileReader():
         '''
         return self._reads
     
+    def getCalibrationScale(self, readid : str) -> float:
+        '''
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        scale : float
+            scale = range / digitisation
+        '''
+        pass
+    
     def getShift(self, readid : str, mode : str = 'median') -> float:
         '''
         Parameter

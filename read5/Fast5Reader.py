@@ -55,11 +55,14 @@ class Fast5Reader(FileReader):
         '''
         return self.__getitem__(readid)['channel_id'].attrs['digitisation']
 
+    def getCalibrationScale(self, readid : str) -> float:
+        return self.getRange(readid) / self.getDigitisation(readid)
+
     def getSignal(self, readid : str) -> np.ndarray:
         return self.__getitem__(readid)['Raw/Signal'][:]
     
     def getpASignal(self, readid :str) -> np.ndarray:
-        return (self.getSignal(readid) + self.getOffset(readid)) * (self.getRange(readid) / self.getDigitisation(readid))
+        return (self.getSignal(readid) + self.getOffset(readid)) * self.getCalibrationScale(readid)
     
     def getChannel(self, readid : str) -> int:
         return int(self.__getitem__(readid)['channel_id'].attrs['channel_number'])

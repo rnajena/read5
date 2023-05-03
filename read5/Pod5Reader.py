@@ -39,16 +39,6 @@ class Pod5Reader(FileReader):
         return self.getCalibration(readid).offset
 
     def getCalibrationScale(self, readid : str) -> float:
-        '''
-        Parameter
-        ---------
-        readid : str
-
-        Returns
-        -------
-        scale : float
-            scale = range / digitisation
-        '''
         return self.getCalibration(readid).scale
 
     def getpASignal(self, readid : str) -> np.ndarray:

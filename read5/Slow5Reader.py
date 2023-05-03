@@ -63,6 +63,9 @@ class Slow5Reader(FileReader):
         digitisation : float
         '''
         return self.__getitem__(readid)['digitisation']
+    
+    def getCalibrationScale(self, readid : str) -> float:
+        return self.getRange(readid) / self.getDigitisation(readid)
 
     def getpASignal(self, readid :str) -> np.ndarray:
         return self._file.get_read(readid, pA=True)['signal']
