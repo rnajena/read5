@@ -3,9 +3,9 @@ import versioneer
 
 requirements = [
     # package requirements go here
-    'pyslow5',
-    'h5py',
-    'ont_vbz_hdf_plugin',
+    'pyslow5>=1.0',
+    'h5py>=3.0',
+    'ont_vbz_hdf_plugin>=1.0',
     'numpy',
     # 'pod5' # currently only avaible via pipy
 ]
