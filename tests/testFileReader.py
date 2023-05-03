@@ -78,13 +78,17 @@ def test_fast5_read_digitisation():
     assert f5.getDigitisation(fast5_readidstarget[0]) == digitisation_r
     f5.close()
 
+def test_pod5_read_calibration_scale():
+    f5 = open(test_fast5)
+    assert f5.getCalibrationScale(fast5_readidstarget[0]) == range_r / digitisation_r
+    f5.close()
+
 def test_fast5_read_signal():
     f5 = open(test_fast5)
     assert (f5.getSignal(fast5_readidstarget[0])[:10] == signal_r_first10).all()
     assert (f5.getSignal(fast5_readidstarget[0])[-10:] == signal_r_last10).all()
     assert len(f5.getSignal(fast5_readidstarget[0])) == signal_len_r
     f5.close()
-
 
 def test_fast5_read_pASignal():
     f5 = open(test_fast5)
@@ -166,6 +170,11 @@ def test_slow5_read_range():
 def test_slow5_read_digitisation():
     s5 = open(test_slow5)
     assert s5.getDigitisation(readidstarget[0]) == digitisation_r
+    s5.close()
+
+def test_pod5_read_calibration_scale():
+    s5 = open(test_slow5)
+    assert s5.getCalibrationScale(readidstarget[0]) == range_r / digitisation_r
     s5.close()
 
 def test_slow5_read_signal():
@@ -255,6 +264,11 @@ def test_blow5_read_range():
 def test_blow5_read_digitisation():
     b5 = open(test_blow5)
     assert b5.getDigitisation(readidstarget[0]) == digitisation_r
+    b5.close()
+
+def test_pod5_read_calibration_scale():
+    b5 = open(test_blow5)
+    assert b5.getCalibrationScale(readidstarget[0]) == range_r / digitisation_r
     b5.close()
 
 def test_blow5_read_signal():
