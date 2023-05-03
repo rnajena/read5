@@ -7,6 +7,8 @@ requirements = [
     'h5py>=3.0',
     'ont_vbz_hdf_plugin>=1.0',
     'numpy',
+    'python>=3.6',
+    'python_abi>=3.6'
     # 'pod5' # currently only avaible via pipy
 ]
 
