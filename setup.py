@@ -3,11 +3,11 @@ import versioneer
 
 requirements = [
     # package requirements go here
-    'python>=3.0'
+    'python>=3.0',
     'h5py>=3.0',
     'ont_vbz_hdf_plugin>=1.0',
     'pyslow5>=1.0.0',
-    'numpy'
+    'numpy',
     # 'pod5' # currently only avaible via pipy
 ]
 
