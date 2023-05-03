@@ -31,14 +31,15 @@ requirements:
     - {{ dep.lower() }}
     {% endfor %}
 
-test:
-  source_files:
-    - tests
-  requires:
-    - pytest
-    - pytest-cov
-  commands:
-    - pytest
+# TODO: Activate tests when pod5 is available via conda!
+# test:
+#   source_files:
+#     - tests
+#   requires:
+#     - pytest
+#     - pytest-cov
+#   commands:
+#     - pytest
 
 about:
   home: https://github.com/JannesSP/Read5
