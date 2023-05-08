@@ -5,7 +5,7 @@ Conda: [![Conda package](https://anaconda.org/jannessp/read5/badges/version.svg)
 [![Conda package](https://anaconda.org/jannessp/read5/badges/latest_release_date.svg)](https://anaconda.org/jannessp/read5)
 [![Conda package](https://anaconda.org/jannessp/read5/badges/platforms.svg)](https://anaconda.org/jannessp/read5)
 
-Zenodo: [![DOI](https://zenodo.org/badge/633012569.svg)](https://zenodo.org/badge/latestdoi/633012569)
+Zenodo: [![DOI](https://zenodo.org/badge/633012569.svg)](https://zenodo.org/record/7908114)
 
 ## Installation
 
