@@ -6,11 +6,10 @@
 
 from read5.Exceptions import UnknownFileFormatException
 from read5.Fast5Reader import Fast5Reader
-from read5.FileReader import FileReader
 from read5.Pod5Reader import Pod5Reader
 from read5.Slow5Reader import Slow5Reader
 
-def open(filepath : str) -> FileReader:
+def open(filepath : str) -> Fast5Reader | Slow5Reader | Pod5Reader:
     '''
     Autodetect file format using extension.
     Raises UnknownFormatException if format is unknown.
