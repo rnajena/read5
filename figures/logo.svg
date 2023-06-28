@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="567.09964"
+     inkscape:cy="375.4737"
+     inkscape:window-width="1920"
+     inkscape:window-height="1163"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="bend_path"
+       id="path-effect6528"
+       is_visible="true"
+       lpeversion="1"
+       bendpath="m 125.54336,64.124639 c 7.92257,-9.022585 15.23805,-8.407256 22.06273,0"
+       prop_scale="1"
+       scale_y_rel="false"
+       vertical="false"
+       hide_knot="false"
+       bendpath-nodetypes="cc" />
+    <inkscape:path-effect
+       effect="lattice2"
+       gridpoint0="125.54336,61.528189"
+       gridpoint1="147.60609,61.528189"
+       gridpoint2="125.54336,66.721089"
+       gridpoint3="147.60609,66.721089"
+       gridpoint4="131.05904,61.528189"
+       gridpoint5="142.09041,61.528189"
+       gridpoint6="131.05904,66.721089"
+       gridpoint7="142.09041,66.721089"
+       gridpoint8x9="136.57473,61.528189"
+       gridpoint10x11="136.57473,66.721089"
+       gridpoint12="125.54336,62.826414"
+       gridpoint13="147.60609,62.826414"
+       gridpoint14="125.54336,65.422864"
+       gridpoint15="147.60609,65.422864"
+       gridpoint16="131.05904,62.826414"
+       gridpoint17="142.09041,62.826414"
+       gridpoint18="131.05904,65.422864"
+       gridpoint19="142.09041,65.422864"
+       gridpoint20x21="136.57473,62.826414"
+       gridpoint22x23="136.57473,65.422864"
+       gridpoint24x26="125.54336,64.124639"
+       gridpoint25x27="147.60609,64.124639"
+       gridpoint28x30="131.05904,64.124639"
+       gridpoint29x31="142.09041,64.124639"
+       gridpoint32x33x34x35="136.57473,64.124639"
+       id="path-effect6526"
+       is_visible="true"
+       lpeversion="1"
+       horizontal_mirror="false"
+       vertical_mirror="false"
+       perimetral="false"
+       live_update="true" />
+    <inkscape:path-effect
+       effect="envelope"
+       id="path-effect6524"
+       is_visible="true"
+       lpeversion="1"
+       yy="true"
+       xx="true"
+       bendpath1="m 125.54336,61.528189 h 22.06273"
+       bendpath2="m 147.60609,61.528189 v 5.1929"
+       bendpath3="m 125.54336,66.721089 h 22.06273"
+       bendpath4="m 125.54336,61.528189 v 5.1929" />
+    <inkscape:path-effect
+       effect="bend_path"
+       id="path-effect6480"
+       is_visible="true"
+       lpeversion="1"
+       bendpath="m 118.47545,48.95299 c 3.85746,-7.748517 8.37142,-7.552268 11.91737,-0.245006"
+       prop_scale="0.75663754"
+       scale_y_rel="false"
+       vertical="false"
+       hide_knot="false"
+       bendpath-nodetypes="cc" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:17.6389px;font-family:sans-serif;stroke-width:0.264583"
+       x="81.499062"
+       y="94.416595"
+       id="text186-5"
+       inkscape:export-filename="logo.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
+         sodipodi:role="line"
+         id="tspan184-6"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.6389px;font-family:'Nucleus BRK';-inkscape-font-specification:'Nucleus BRK';stroke-width:0.264583"
+         x="81.499062"
+         y="94.416595">READ5</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;font-family:sans-serif;stroke-width:0.264583"
+       x="38.865856"
+       y="100.54061"
+       id="text6565"><tspan
+         sodipodi:role="line"
+         id="tspan6563"
+         style="font-size:4.23333px;stroke-width:0.264583"
+         x="38.865856"
+         y="100.54061">Read5: A wrapper to read fast5, slow5, blow5 and pod5 files with python.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
+       x="41.260448"
+       y="157.5784"
+       id="text6565-1"><tspan
+         sodipodi:role="line"
+         id="tspan6563-2"
+         style="font-size:4.23333px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"
+         x="41.260448"
+         y="157.5784">Read5: A wrapper to read fast5, slow5, blow5 and pod5 files with python.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.6389px;font-family:sans-serif;stroke:none;stroke-width:0.265;stroke-dasharray:none;stroke-opacity:1"
+       x="70.347"
+       y="147.73795"
+       id="text186-5-1"><tspan
+         sodipodi:role="line"
+         id="tspan184-6-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.6389px;font-family:'Linux Biolinum Keyboard O';-inkscape-font-specification:'Linux Biolinum Keyboard O';stroke:none;stroke-width:0.265;stroke-dasharray:none;stroke-opacity:1"
+         x="70.347"
+         y="147.73795">READ5</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.6389px;font-family:sans-serif;stroke-width:0.264583"
+       x="87.330147"
+       y="236.58301"
+       id="text186-5-1-9"><tspan
+         sodipodi:role="line"
+         id="tspan184-6-7-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.6389px;font-family:'Unanimous BRK';-inkscape-font-specification:'Unanimous BRK';stroke-width:0.264583"
+         x="87.330147"
+         y="236.58301">READ5</tspan></text>
+  </g>
+</svg>
