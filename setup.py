@@ -3,7 +3,6 @@ import versioneer
 
 requirements = [
     # package requirements go here
-    'python>=3.0',
     'h5py>=3.0',
     'ont_vbz_hdf_plugin>=1.0',
     'pyslow5>=1.0.0',
@@ -25,8 +24,6 @@ setup(
     install_requires=requirements,
     keywords='Read5',
     classifiers=[
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
