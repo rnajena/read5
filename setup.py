@@ -22,7 +22,7 @@ setup(
     packages=['read5'],
     
     install_requires=requirements,
-    keywords='Read5',
+    keywords=['Read5', 'slow5', 'blow5', 'fast5', 'pod5', 'ONT', 'Oxford Nanopore Technologies', 'Nanopore', 'raw data'],
     classifiers=[
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
