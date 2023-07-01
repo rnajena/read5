@@ -14,6 +14,7 @@ ___
 ## Table of Content
 1.  [Installation](#installation)
 2.  [Usage](#usage)
+3.  [Full Documentation](https://jannessp.github.io/read5.github.io/)
 ___
 ## Installation
 
@@ -28,6 +29,8 @@ pip install pod5
 ```
 ___
 ## Usage
+
+[Click here to see a full documentation about the classes and function.](https://jannessp.github.io/read5.github.io/)
 
 *my_file* can be a fast5, slow5, blow5 or pod5 file. The wrapper detects the file format depending on the file extension.
 
