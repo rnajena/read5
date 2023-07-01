@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>read5.Pod5Reader API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>read5.Pod5Reader</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# author: Jannes Spangenberg
+# e-mail: jannes.spangenberg@uni-jena.de
+# github: https://github.com/JannesSP
+# website: https://jannessp.github.io
+
+import uuid
+from read5.FileReader import *
+import pod5
+import datetime
+
+class Pod5Reader(FileReader):
+    &#39;&#39;&#39;
+    File reader for pod5 files
+    &#39;&#39;&#39;
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def open(self) -&gt; None:
+        self._file = pod5.Reader(self._filepath)
+        self._reads = self._file.read_ids
+        self._nreads = self._file.num_reads
+        self._open = True
+
+    def getReads(self) -&gt; list:
+        return self._reads
+        
+    def __getitem__(self, readid : str):
+        &#39;&#39;&#39;
+        Returns the ReadRecord for the provided readid.
+        &#39;&#39;&#39;
+        return next(self._file.reads([readid]))
+    
+    def getAsicID(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;asic_id&#39;]
+    
+    def getAsicIDEeprom(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;asic_id_eeprom&#39;]
+
+    def getAsicTemp(self, readid : str) -&gt; float:
+        return float(self.getTrackingIDDict(readid)[&#39;asic_temp&#39;])
+
+    def getAsicVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;asic_version&#39;]
+    
+    def getAutoUpdateSource(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;auto_update_source&#39;]
+
+    def isAutoUpdated(self, readid : str) -&gt; bool:
+        return bool(int(self.getTrackingIDDict(readid)[&#39;auto_update&#39;]))    
+
+    def isBarcodingEnabled(self, readid : str) -&gt; bool:
+        return bool(int(self.getContextTagsDict(readid)[&#39;barcoding_enabled&#39;]))
+    
+    def isBreamStandard(self, readid : str) -&gt; bool:
+        return bool(int(self.getTrackingIDDict(readid)[&#39;bream_is_standard&#39;]))
+
+    def getCalibration(self, readid : str) -&gt; float:
+        return self.__getitem__(readid).calibration
+
+    def getCalibrationScale(self, readid : str) -&gt; float:
+        return self.getCalibration(readid).scale
+
+    def getChannelNumber(self, readid : str) -&gt; int:
+        return self.getPoreObject(readid).channel
+
+    def getConfigurationVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;configuration_version&#39;]
+
+    def getContextTagsDict(self, readid : str) -&gt; dict:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        context_tags : dict
+        &#39;&#39;&#39;
+        return self.getRunInfoObject(readid).context_tags
+
+    def getDeviceID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).sequencer_position
+    
+    def getDeviceType(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).sequencer_position_type
+
+    def getDigitisation(self, readid : str) -&gt; int:
+        return self.__getitem__(readid).calibration_digitisation
+    
+    def getDistributionStatus(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;distribution_status&#39;]
+    
+    def getDistributionVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;distribution_version&#39;]
+    
+    def getDuration(self, readid : str) -&gt; int:
+        return self.__getitem__(readid).num_samples
+
+    def getEndReason(self, readid: str) -&gt; int:
+        &#39;&#39;&#39;
+        ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!
+
+        Returns
+        -------
+        end_reason : int
+            0 : unknown
+            1 : mux_change
+            2 : unblock_mux_change
+            3 : data_service_unblock_mux_change
+            4 : signal_positive
+            5 : signal_negative
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).end_reason_index
+    
+    def getEndReasonObject(self, readid: str) -&gt; pod5.pod5_types.EndReason:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        end_reason : pod5.pod5_types.EndReason
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).end_reason
+
+    def getExperimentDurationSet(self, readid : str) -&gt; int:
+        return int(self.getContextTagsDict(readid)[&#39;experiment_duration_set&#39;])
+
+    def getExperimentType(self, readid : str) -&gt; str:
+        return self.getContextTagsDict(readid)[&#39;experiment_type&#39;]
+    
+    def getExpScriptPurpose(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;exp_script_purpose&#39;]
+
+    def getExpScriptName(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).protocol_name
+
+    def getExpStartTime(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;exp_start_time&#39;]
+
+    def getFileID(self) -&gt; uuid.UUID:
+        return self._file.file_identifier
+    
+    # file_version : packagin.version.Version
+    # contains more (&amp; detailed) information if needed in the future
+    def getFileVersion(self) -&gt; str:
+        return str(self._file.file_version)
+    
+    def getLocalFirmwareFile(self, readid : str) -&gt; int:
+        return int(self.getTrackingIDDict(readid)[&#39;local_firmware_file&#39;])
+
+    def getFlowCellID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).flow_cell_id
+    
+    def getFlowCellProductCode(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).flow_cell_product_code
+    
+    def getGuppyVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;guppy_version&#39;]
+
+    def getHeatSinkTemp(self, readid : str) -&gt; float:
+        return float(self.getTrackingIDDict(readid)[&#39;heatsink_temp&#39;])
+
+    def getHostname(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;hostname&#39;]
+    
+    def getHostProductCode(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;host_product_code&#39;]
+    
+    def getHostProductSerialNumber(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;host_product_serial_number&#39;]
+    
+    def getInstallationType(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;installation_type&#39;]
+
+    def isLocalBasecalled(self, readid : str) -&gt; bool:
+        return bool(int(self.getContextTagsDict(readid)[&#39;local_basecalling&#39;]))
+
+    def getMedianBefore(self, readid : str) -&gt; float:
+        return self.__getitem__(readid).median_before
+
+    def getNumMinknowEvents(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Number of minknow events that the read contains.
+
+        Returns
+        -------
+        num_minknow_events : int
+            np.nan, if attribute not available
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).num_minknow_events
+
+    def getNumReadsSinceMuxChange(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Number of selected reads since the last mux change on this reads channel
+
+        Returns
+        -------
+        num_reads_since_mux_change : int
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).num_reads_since_mux_change
+
+    def getTimeSinceMuxChange(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        time_since_mux_change : float
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).time_since_mux_change
+    
+    def getOffset(self, readid : str) -&gt; float:
+        return self.getCalibration(readid).offset
+    
+    def getOperatingSystem(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;operating_system&#39;]
+
+    def getPackage(self, readid : str) -&gt; str:
+        return self.getContextTagsDict(readid)[&#39;package&#39;]
+    
+    def getPackageVersion(self, readid : str) -&gt; str:
+        return self.getContextTagsDict(readid)[&#39;package_version&#39;]
+    
+    def getProtocolGroupID(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;protocol_group_id&#39;]
+
+    def getProtocolStartTime(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;protocol_start_time&#39;]
+
+    def getProtocolStartTime_fromRunInfo(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).protocol_start_time.isoformat()
+
+    # TODO the following function works and is correct, but the converted time seems to be wrong -&gt; error in pod5 converter?
+    def getProtocolStartTime_datetime(self, readid : str) -&gt; datetime.datetime:
+        &#39;&#39;&#39;
+        Parameters
+        ----------
+        readid : str
+
+        Returns
+        -------
+        protocol_start_time : datetime.datetime
+        &#39;&#39;&#39;
+        return self.getRunInfoObject(readid).protocol_start_time
+
+    def getProtocolRunID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).protocol_run_id
+
+    def getProtocolVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;protocols_version&#39;]
+
+    def getpASignal(self, readid : str) -&gt; np.ndarray:
+        return self.__getitem__(readid).signal_pa
+
+    def getPoreObject(self, readid : str) -&gt; pod5.pod5_types.Pore:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        pore : pod5.pod5_types.Pore
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).pore
+    
+    def getPoreType(self, readid : str) -&gt; str:
+        return self.getPoreObject(readid).pore_type
+    
+    def getPredictedScaling(self, readid : str) -&gt; tuple[float, float]:
+        &#39;&#39;&#39;
+        Shift and Scale for predicted read scaling values (based on this read&#39;s raw signal)
+
+        Returns
+        -------
+        (shift, scale) : tuple[float, float]
+            (nan, nan), if attributes not available
+        &#39;&#39;&#39;
+        ShScPair = self.__getitem__(readid).predicted_scaling
+        return (ShScPair.shift, ShScPair.scale)
+
+    def getRange(self, readid : str) -&gt; float:
+        return self.__getitem__(readid).calibration_range
+
+    def getReadNumber(self, readid : str) -&gt; int:
+        return self.__getitem__(readid).read_number
+
+    def getRunID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).acquisition_id
+
+    def getReadObject(self, readid : str) -&gt; pod5.pod5_types.Read:
+        return self.__getitem__(readid).to_read()
+
+    def getRunInfoObject(self, readid : str) -&gt; pod5.pod5_types.RunInfo:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        run_info : pod5.pod5_types.RunInfo
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).run_info
+
+    def getSampleID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).sample_id
+
+    def getSamplingRate(self, readid : str) -&gt; int:
+        return self.getRunInfoObject(readid).sample_rate
+    
+    def getSequencingKit(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).sequencing_kit
+
+    def getSignal(self, readid : str) -&gt; np.ndarray:
+        return self.__getitem__(readid).signal
+
+    def getStartTime(self, readid : str) -&gt; int:
+        return self.__getitem__(readid).start_sample
+    
+    def getTrackingIDDict(self, readid : str) -&gt; dict:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        tracking_id : dict
+        &#39;&#39;&#39;
+        return self.getRunInfoObject(readid).tracking_id
+
+    def isVBZCompressed(self) -&gt; bool:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        flag : bool
+            if file is VBZ compressed or not
+        &#39;&#39;&#39;
+        return self._file.is_vbz_compressed
+    
+    def getVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;version&#39;]
+
+    def getWellNumber(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        well : int
+            Number of the well in the channel used for sequencing
+        &#39;&#39;&#39;
+        return self.getPoreObject(readid).well
+    
+    def getUSBConfig(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;usb_config&#39;]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="read5.Pod5Reader.Pod5Reader"><code class="flex name class">
+<span>class <span class="ident">Pod5Reader</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>File reader for pod5 files</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Pod5Reader(FileReader):
+    &#39;&#39;&#39;
+    File reader for pod5 files
+    &#39;&#39;&#39;
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def open(self) -&gt; None:
+        self._file = pod5.Reader(self._filepath)
+        self._reads = self._file.read_ids
+        self._nreads = self._file.num_reads
+        self._open = True
+
+    def getReads(self) -&gt; list:
+        return self._reads
+        
+    def __getitem__(self, readid : str):
+        &#39;&#39;&#39;
+        Returns the ReadRecord for the provided readid.
+        &#39;&#39;&#39;
+        return next(self._file.reads([readid]))
+    
+    def getAsicID(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;asic_id&#39;]
+    
+    def getAsicIDEeprom(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;asic_id_eeprom&#39;]
+
+    def getAsicTemp(self, readid : str) -&gt; float:
+        return float(self.getTrackingIDDict(readid)[&#39;asic_temp&#39;])
+
+    def getAsicVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;asic_version&#39;]
+    
+    def getAutoUpdateSource(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;auto_update_source&#39;]
+
+    def isAutoUpdated(self, readid : str) -&gt; bool:
+        return bool(int(self.getTrackingIDDict(readid)[&#39;auto_update&#39;]))    
+
+    def isBarcodingEnabled(self, readid : str) -&gt; bool:
+        return bool(int(self.getContextTagsDict(readid)[&#39;barcoding_enabled&#39;]))
+    
+    def isBreamStandard(self, readid : str) -&gt; bool:
+        return bool(int(self.getTrackingIDDict(readid)[&#39;bream_is_standard&#39;]))
+
+    def getCalibration(self, readid : str) -&gt; float:
+        return self.__getitem__(readid).calibration
+
+    def getCalibrationScale(self, readid : str) -&gt; float:
+        return self.getCalibration(readid).scale
+
+    def getChannelNumber(self, readid : str) -&gt; int:
+        return self.getPoreObject(readid).channel
+
+    def getConfigurationVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;configuration_version&#39;]
+
+    def getContextTagsDict(self, readid : str) -&gt; dict:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        context_tags : dict
+        &#39;&#39;&#39;
+        return self.getRunInfoObject(readid).context_tags
+
+    def getDeviceID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).sequencer_position
+    
+    def getDeviceType(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).sequencer_position_type
+
+    def getDigitisation(self, readid : str) -&gt; int:
+        return self.__getitem__(readid).calibration_digitisation
+    
+    def getDistributionStatus(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;distribution_status&#39;]
+    
+    def getDistributionVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;distribution_version&#39;]
+    
+    def getDuration(self, readid : str) -&gt; int:
+        return self.__getitem__(readid).num_samples
+
+    def getEndReason(self, readid: str) -&gt; int:
+        &#39;&#39;&#39;
+        ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!
+
+        Returns
+        -------
+        end_reason : int
+            0 : unknown
+            1 : mux_change
+            2 : unblock_mux_change
+            3 : data_service_unblock_mux_change
+            4 : signal_positive
+            5 : signal_negative
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).end_reason_index
+    
+    def getEndReasonObject(self, readid: str) -&gt; pod5.pod5_types.EndReason:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        end_reason : pod5.pod5_types.EndReason
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).end_reason
+
+    def getExperimentDurationSet(self, readid : str) -&gt; int:
+        return int(self.getContextTagsDict(readid)[&#39;experiment_duration_set&#39;])
+
+    def getExperimentType(self, readid : str) -&gt; str:
+        return self.getContextTagsDict(readid)[&#39;experiment_type&#39;]
+    
+    def getExpScriptPurpose(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;exp_script_purpose&#39;]
+
+    def getExpScriptName(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).protocol_name
+
+    def getExpStartTime(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;exp_start_time&#39;]
+
+    def getFileID(self) -&gt; uuid.UUID:
+        return self._file.file_identifier
+    
+    # file_version : packagin.version.Version
+    # contains more (&amp; detailed) information if needed in the future
+    def getFileVersion(self) -&gt; str:
+        return str(self._file.file_version)
+    
+    def getLocalFirmwareFile(self, readid : str) -&gt; int:
+        return int(self.getTrackingIDDict(readid)[&#39;local_firmware_file&#39;])
+
+    def getFlowCellID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).flow_cell_id
+    
+    def getFlowCellProductCode(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).flow_cell_product_code
+    
+    def getGuppyVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;guppy_version&#39;]
+
+    def getHeatSinkTemp(self, readid : str) -&gt; float:
+        return float(self.getTrackingIDDict(readid)[&#39;heatsink_temp&#39;])
+
+    def getHostname(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;hostname&#39;]
+    
+    def getHostProductCode(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;host_product_code&#39;]
+    
+    def getHostProductSerialNumber(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;host_product_serial_number&#39;]
+    
+    def getInstallationType(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;installation_type&#39;]
+
+    def isLocalBasecalled(self, readid : str) -&gt; bool:
+        return bool(int(self.getContextTagsDict(readid)[&#39;local_basecalling&#39;]))
+
+    def getMedianBefore(self, readid : str) -&gt; float:
+        return self.__getitem__(readid).median_before
+
+    def getNumMinknowEvents(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Number of minknow events that the read contains.
+
+        Returns
+        -------
+        num_minknow_events : int
+            np.nan, if attribute not available
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).num_minknow_events
+
+    def getNumReadsSinceMuxChange(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Number of selected reads since the last mux change on this reads channel
+
+        Returns
+        -------
+        num_reads_since_mux_change : int
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).num_reads_since_mux_change
+
+    def getTimeSinceMuxChange(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        time_since_mux_change : float
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).time_since_mux_change
+    
+    def getOffset(self, readid : str) -&gt; float:
+        return self.getCalibration(readid).offset
+    
+    def getOperatingSystem(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;operating_system&#39;]
+
+    def getPackage(self, readid : str) -&gt; str:
+        return self.getContextTagsDict(readid)[&#39;package&#39;]
+    
+    def getPackageVersion(self, readid : str) -&gt; str:
+        return self.getContextTagsDict(readid)[&#39;package_version&#39;]
+    
+    def getProtocolGroupID(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;protocol_group_id&#39;]
+
+    def getProtocolStartTime(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;protocol_start_time&#39;]
+
+    def getProtocolStartTime_fromRunInfo(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).protocol_start_time.isoformat()
+
+    # TODO the following function works and is correct, but the converted time seems to be wrong -&gt; error in pod5 converter?
+    def getProtocolStartTime_datetime(self, readid : str) -&gt; datetime.datetime:
+        &#39;&#39;&#39;
+        Parameters
+        ----------
+        readid : str
+
+        Returns
+        -------
+        protocol_start_time : datetime.datetime
+        &#39;&#39;&#39;
+        return self.getRunInfoObject(readid).protocol_start_time
+
+    def getProtocolRunID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).protocol_run_id
+
+    def getProtocolVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;protocols_version&#39;]
+
+    def getpASignal(self, readid : str) -&gt; np.ndarray:
+        return self.__getitem__(readid).signal_pa
+
+    def getPoreObject(self, readid : str) -&gt; pod5.pod5_types.Pore:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        pore : pod5.pod5_types.Pore
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).pore
+    
+    def getPoreType(self, readid : str) -&gt; str:
+        return self.getPoreObject(readid).pore_type
+    
+    def getPredictedScaling(self, readid : str) -&gt; tuple[float, float]:
+        &#39;&#39;&#39;
+        Shift and Scale for predicted read scaling values (based on this read&#39;s raw signal)
+
+        Returns
+        -------
+        (shift, scale) : tuple[float, float]
+            (nan, nan), if attributes not available
+        &#39;&#39;&#39;
+        ShScPair = self.__getitem__(readid).predicted_scaling
+        return (ShScPair.shift, ShScPair.scale)
+
+    def getRange(self, readid : str) -&gt; float:
+        return self.__getitem__(readid).calibration_range
+
+    def getReadNumber(self, readid : str) -&gt; int:
+        return self.__getitem__(readid).read_number
+
+    def getRunID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).acquisition_id
+
+    def getReadObject(self, readid : str) -&gt; pod5.pod5_types.Read:
+        return self.__getitem__(readid).to_read()
+
+    def getRunInfoObject(self, readid : str) -&gt; pod5.pod5_types.RunInfo:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        run_info : pod5.pod5_types.RunInfo
+        &#39;&#39;&#39;
+        return self.__getitem__(readid).run_info
+
+    def getSampleID(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).sample_id
+
+    def getSamplingRate(self, readid : str) -&gt; int:
+        return self.getRunInfoObject(readid).sample_rate
+    
+    def getSequencingKit(self, readid : str) -&gt; str:
+        return self.getRunInfoObject(readid).sequencing_kit
+
+    def getSignal(self, readid : str) -&gt; np.ndarray:
+        return self.__getitem__(readid).signal
+
+    def getStartTime(self, readid : str) -&gt; int:
+        return self.__getitem__(readid).start_sample
+    
+    def getTrackingIDDict(self, readid : str) -&gt; dict:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        tracking_id : dict
+        &#39;&#39;&#39;
+        return self.getRunInfoObject(readid).tracking_id
+
+    def isVBZCompressed(self) -&gt; bool:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        flag : bool
+            if file is VBZ compressed or not
+        &#39;&#39;&#39;
+        return self._file.is_vbz_compressed
+    
+    def getVersion(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;version&#39;]
+
+    def getWellNumber(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        well : int
+            Number of the well in the channel used for sequencing
+        &#39;&#39;&#39;
+        return self.getPoreObject(readid).well
+    
+    def getUSBConfig(self, readid : str) -&gt; str:
+        return self.getTrackingIDDict(readid)[&#39;usb_config&#39;]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="read5.FileReader.FileReader" href="FileReader.html#read5.FileReader.FileReader">FileReader</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="read5.Pod5Reader.Pod5Reader.getCalibration"><code class="name flex">
+<span>def <span class="ident">getCalibration</span></span>(<span>self, readid: str) -> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCalibration(self, readid : str) -&gt; float:
+    return self.__getitem__(readid).calibration</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getContextTagsDict"><code class="name flex">
+<span>def <span class="ident">getContextTagsDict</span></span>(<span>self, readid: str) -> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>context_tags</code></strong> :&ensp;<code>dict</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getContextTagsDict(self, readid : str) -&gt; dict:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    context_tags : dict
+    &#39;&#39;&#39;
+    return self.getRunInfoObject(readid).context_tags</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getEndReason"><code class="name flex">
+<span>def <span class="ident">getEndReason</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>end_reason</code></strong> :&ensp;<code>int</code></dt>
+<dd>0 : unknown
+1 : mux_change
+2 : unblock_mux_change
+3 : data_service_unblock_mux_change
+4 : signal_positive
+5 : signal_negative</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getEndReason(self, readid: str) -&gt; int:
+    &#39;&#39;&#39;
+    ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!
+
+    Returns
+    -------
+    end_reason : int
+        0 : unknown
+        1 : mux_change
+        2 : unblock_mux_change
+        3 : data_service_unblock_mux_change
+        4 : signal_positive
+        5 : signal_negative
+    &#39;&#39;&#39;
+    return self.__getitem__(readid).end_reason_index</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getEndReasonObject"><code class="name flex">
+<span>def <span class="ident">getEndReasonObject</span></span>(<span>self, readid: str) -> pod5.pod5_types.EndReason</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>end_reason</code></strong> :&ensp;<code>pod5.pod5_types.EndReason</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getEndReasonObject(self, readid: str) -&gt; pod5.pod5_types.EndReason:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    end_reason : pod5.pod5_types.EndReason
+    &#39;&#39;&#39;
+    return self.__getitem__(readid).end_reason</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getFileID"><code class="name flex">
+<span>def <span class="ident">getFileID</span></span>(<span>self) -> uuid.UUID</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getFileID(self) -&gt; uuid.UUID:
+    return self._file.file_identifier</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getNumMinknowEvents"><code class="name flex">
+<span>def <span class="ident">getNumMinknowEvents</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Number of minknow events that the read contains.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>num_minknow_events</code></strong> :&ensp;<code>int</code></dt>
+<dd>np.nan, if attribute not available</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumMinknowEvents(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Number of minknow events that the read contains.
+
+    Returns
+    -------
+    num_minknow_events : int
+        np.nan, if attribute not available
+    &#39;&#39;&#39;
+    return self.__getitem__(readid).num_minknow_events</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getNumReadsSinceMuxChange"><code class="name flex">
+<span>def <span class="ident">getNumReadsSinceMuxChange</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Number of selected reads since the last mux change on this reads channel</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>num_reads_since_mux_change</code></strong> :&ensp;<code>int</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumReadsSinceMuxChange(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Number of selected reads since the last mux change on this reads channel
+
+    Returns
+    -------
+    num_reads_since_mux_change : int
+    &#39;&#39;&#39;
+    return self.__getitem__(readid).num_reads_since_mux_change</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getPoreObject"><code class="name flex">
+<span>def <span class="ident">getPoreObject</span></span>(<span>self, readid: str) -> pod5.pod5_types.Pore</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>pore</code></strong> :&ensp;<code>pod5.pod5_types.Pore</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPoreObject(self, readid : str) -&gt; pod5.pod5_types.Pore:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    pore : pod5.pod5_types.Pore
+    &#39;&#39;&#39;
+    return self.__getitem__(readid).pore</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getPredictedScaling"><code class="name flex">
+<span>def <span class="ident">getPredictedScaling</span></span>(<span>self, readid: str) -> tuple[float, float]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Shift and Scale for predicted read scaling values (based on this read's raw signal)</p>
+<h2 id="returns">Returns</h2>
+<p>(shift, scale) : tuple[float, float]
+(nan, nan), if attributes not available</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPredictedScaling(self, readid : str) -&gt; tuple[float, float]:
+    &#39;&#39;&#39;
+    Shift and Scale for predicted read scaling values (based on this read&#39;s raw signal)
+
+    Returns
+    -------
+    (shift, scale) : tuple[float, float]
+        (nan, nan), if attributes not available
+    &#39;&#39;&#39;
+    ShScPair = self.__getitem__(readid).predicted_scaling
+    return (ShScPair.shift, ShScPair.scale)</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getProtocolStartTime_datetime"><code class="name flex">
+<span>def <span class="ident">getProtocolStartTime_datetime</span></span>(<span>self, readid: str) -> datetime.datetime</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>readid</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>protocol_start_time</code></strong> :&ensp;<code>datetime.datetime</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getProtocolStartTime_datetime(self, readid : str) -&gt; datetime.datetime:
+    &#39;&#39;&#39;
+    Parameters
+    ----------
+    readid : str
+
+    Returns
+    -------
+    protocol_start_time : datetime.datetime
+    &#39;&#39;&#39;
+    return self.getRunInfoObject(readid).protocol_start_time</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getProtocolStartTime_fromRunInfo"><code class="name flex">
+<span>def <span class="ident">getProtocolStartTime_fromRunInfo</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getProtocolStartTime_fromRunInfo(self, readid : str) -&gt; str:
+    return self.getRunInfoObject(readid).protocol_start_time.isoformat()</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getReadObject"><code class="name flex">
+<span>def <span class="ident">getReadObject</span></span>(<span>self, readid: str) -> pod5.pod5_types.Read</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getReadObject(self, readid : str) -&gt; pod5.pod5_types.Read:
+    return self.__getitem__(readid).to_read()</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getRunInfoObject"><code class="name flex">
+<span>def <span class="ident">getRunInfoObject</span></span>(<span>self, readid: str) -> pod5.pod5_types.RunInfo</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>run_info</code></strong> :&ensp;<code>pod5.pod5_types.RunInfo</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getRunInfoObject(self, readid : str) -&gt; pod5.pod5_types.RunInfo:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    run_info : pod5.pod5_types.RunInfo
+    &#39;&#39;&#39;
+    return self.__getitem__(readid).run_info</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getTimeSinceMuxChange"><code class="name flex">
+<span>def <span class="ident">getTimeSinceMuxChange</span></span>(<span>self, readid: str) -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>time_since_mux_change</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTimeSinceMuxChange(self, readid : str) -&gt; float:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    time_since_mux_change : float
+    &#39;&#39;&#39;
+    return self.__getitem__(readid).time_since_mux_change</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getTrackingIDDict"><code class="name flex">
+<span>def <span class="ident">getTrackingIDDict</span></span>(<span>self, readid: str) -> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>tracking_id</code></strong> :&ensp;<code>dict</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTrackingIDDict(self, readid : str) -&gt; dict:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    tracking_id : dict
+    &#39;&#39;&#39;
+    return self.getRunInfoObject(readid).tracking_id</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.getWellNumber"><code class="name flex">
+<span>def <span class="ident">getWellNumber</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>well</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of the well in the channel used for sequencing</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getWellNumber(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    well : int
+        Number of the well in the channel used for sequencing
+    &#39;&#39;&#39;
+    return self.getPoreObject(readid).well</code></pre>
+</details>
+</dd>
+<dt id="read5.Pod5Reader.Pod5Reader.isVBZCompressed"><code class="name flex">
+<span>def <span class="ident">isVBZCompressed</span></span>(<span>self) -> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>flag</code></strong> :&ensp;<code>bool</code></dt>
+<dd>if file is VBZ compressed or not</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isVBZCompressed(self) -&gt; bool:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    flag : bool
+        if file is VBZ compressed or not
+    &#39;&#39;&#39;
+    return self._file.is_vbz_compressed</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="read5.FileReader.FileReader" href="FileReader.html#read5.FileReader.FileReader">FileReader</a></b></code>:
+<ul class="hlist">
+<li><code><a title="read5.FileReader.FileReader.close" href="FileReader.html#read5.FileReader.FileReader.close">close</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAsicID" href="FileReader.html#read5.FileReader.FileReader.getAsicID">getAsicID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAsicIDEeprom" href="FileReader.html#read5.FileReader.FileReader.getAsicIDEeprom">getAsicIDEeprom</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAsicTemp" href="FileReader.html#read5.FileReader.FileReader.getAsicTemp">getAsicTemp</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAsicVersion" href="FileReader.html#read5.FileReader.FileReader.getAsicVersion">getAsicVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAutoUpdateSource" href="FileReader.html#read5.FileReader.FileReader.getAutoUpdateSource">getAutoUpdateSource</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getCalibrationScale" href="FileReader.html#read5.FileReader.FileReader.getCalibrationScale">getCalibrationScale</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getChannelNumber" href="FileReader.html#read5.FileReader.FileReader.getChannelNumber">getChannelNumber</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getConfigurationVersion" href="FileReader.html#read5.FileReader.FileReader.getConfigurationVersion">getConfigurationVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDeviceID" href="FileReader.html#read5.FileReader.FileReader.getDeviceID">getDeviceID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDeviceType" href="FileReader.html#read5.FileReader.FileReader.getDeviceType">getDeviceType</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDigitisation" href="FileReader.html#read5.FileReader.FileReader.getDigitisation">getDigitisation</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDistributionStatus" href="FileReader.html#read5.FileReader.FileReader.getDistributionStatus">getDistributionStatus</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDistributionVersion" href="FileReader.html#read5.FileReader.FileReader.getDistributionVersion">getDistributionVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDuration" href="FileReader.html#read5.FileReader.FileReader.getDuration">getDuration</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExpScriptName" href="FileReader.html#read5.FileReader.FileReader.getExpScriptName">getExpScriptName</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExpScriptPurpose" href="FileReader.html#read5.FileReader.FileReader.getExpScriptPurpose">getExpScriptPurpose</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExpStartTime" href="FileReader.html#read5.FileReader.FileReader.getExpStartTime">getExpStartTime</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExperimentDurationSet" href="FileReader.html#read5.FileReader.FileReader.getExperimentDurationSet">getExperimentDurationSet</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExperimentType" href="FileReader.html#read5.FileReader.FileReader.getExperimentType">getExperimentType</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getFileVersion" href="FileReader.html#read5.FileReader.FileReader.getFileVersion">getFileVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getFlowCellID" href="FileReader.html#read5.FileReader.FileReader.getFlowCellID">getFlowCellID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getFlowCellProductCode" href="FileReader.html#read5.FileReader.FileReader.getFlowCellProductCode">getFlowCellProductCode</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getGuppyVersion" href="FileReader.html#read5.FileReader.FileReader.getGuppyVersion">getGuppyVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getHeatSinkTemp" href="FileReader.html#read5.FileReader.FileReader.getHeatSinkTemp">getHeatSinkTemp</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getHostProductCode" href="FileReader.html#read5.FileReader.FileReader.getHostProductCode">getHostProductCode</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getHostProductSerialNumber" href="FileReader.html#read5.FileReader.FileReader.getHostProductSerialNumber">getHostProductSerialNumber</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getHostname" href="FileReader.html#read5.FileReader.FileReader.getHostname">getHostname</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getInstallationType" href="FileReader.html#read5.FileReader.FileReader.getInstallationType">getInstallationType</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getLocalFirmwareFile" href="FileReader.html#read5.FileReader.FileReader.getLocalFirmwareFile">getLocalFirmwareFile</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getMedianBefore" href="FileReader.html#read5.FileReader.FileReader.getMedianBefore">getMedianBefore</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getOffset" href="FileReader.html#read5.FileReader.FileReader.getOffset">getOffset</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getOperatingSystem" href="FileReader.html#read5.FileReader.FileReader.getOperatingSystem">getOperatingSystem</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getPackage" href="FileReader.html#read5.FileReader.FileReader.getPackage">getPackage</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getPackageVersion" href="FileReader.html#read5.FileReader.FileReader.getPackageVersion">getPackageVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getPoreType" href="FileReader.html#read5.FileReader.FileReader.getPoreType">getPoreType</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getProtocolGroupID" href="FileReader.html#read5.FileReader.FileReader.getProtocolGroupID">getProtocolGroupID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getProtocolRunID" href="FileReader.html#read5.FileReader.FileReader.getProtocolRunID">getProtocolRunID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getProtocolStartTime" href="FileReader.html#read5.FileReader.FileReader.getProtocolStartTime">getProtocolStartTime</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getProtocolVersion" href="FileReader.html#read5.FileReader.FileReader.getProtocolVersion">getProtocolVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getRange" href="FileReader.html#read5.FileReader.FileReader.getRange">getRange</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getReadNumber" href="FileReader.html#read5.FileReader.FileReader.getReadNumber">getReadNumber</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getReads" href="FileReader.html#read5.FileReader.FileReader.getReads">getReads</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getRunID" href="FileReader.html#read5.FileReader.FileReader.getRunID">getRunID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getSampleID" href="FileReader.html#read5.FileReader.FileReader.getSampleID">getSampleID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getSamplingRate" href="FileReader.html#read5.FileReader.FileReader.getSamplingRate">getSamplingRate</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getScale" href="FileReader.html#read5.FileReader.FileReader.getScale">getScale</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getSequencingKit" href="FileReader.html#read5.FileReader.FileReader.getSequencingKit">getSequencingKit</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getShift" href="FileReader.html#read5.FileReader.FileReader.getShift">getShift</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getSignal" href="FileReader.html#read5.FileReader.FileReader.getSignal">getSignal</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getStartTime" href="FileReader.html#read5.FileReader.FileReader.getStartTime">getStartTime</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getStartTimeInMinutes" href="FileReader.html#read5.FileReader.FileReader.getStartTimeInMinutes">getStartTimeInMinutes</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getUSBConfig" href="FileReader.html#read5.FileReader.FileReader.getUSBConfig">getUSBConfig</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getVersion" href="FileReader.html#read5.FileReader.FileReader.getVersion">getVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getZNormSignal" href="FileReader.html#read5.FileReader.FileReader.getZNormSignal">getZNormSignal</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getpASignal" href="FileReader.html#read5.FileReader.FileReader.getpASignal">getpASignal</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isAutoUpdated" href="FileReader.html#read5.FileReader.FileReader.isAutoUpdated">isAutoUpdated</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isBarcodingEnabled" href="FileReader.html#read5.FileReader.FileReader.isBarcodingEnabled">isBarcodingEnabled</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isBreamStandard" href="FileReader.html#read5.FileReader.FileReader.isBreamStandard">isBreamStandard</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isLocalBasecalled" href="FileReader.html#read5.FileReader.FileReader.isLocalBasecalled">isLocalBasecalled</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isOpen" href="FileReader.html#read5.FileReader.FileReader.isOpen">isOpen</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.open" href="FileReader.html#read5.FileReader.FileReader.open">open</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="read5" href="index.html">read5</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="read5.Pod5Reader.Pod5Reader" href="#read5.Pod5Reader.Pod5Reader">Pod5Reader</a></code></h4>
+<ul class="">
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getCalibration" href="#read5.Pod5Reader.Pod5Reader.getCalibration">getCalibration</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getContextTagsDict" href="#read5.Pod5Reader.Pod5Reader.getContextTagsDict">getContextTagsDict</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getEndReason" href="#read5.Pod5Reader.Pod5Reader.getEndReason">getEndReason</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getEndReasonObject" href="#read5.Pod5Reader.Pod5Reader.getEndReasonObject">getEndReasonObject</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getFileID" href="#read5.Pod5Reader.Pod5Reader.getFileID">getFileID</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getNumMinknowEvents" href="#read5.Pod5Reader.Pod5Reader.getNumMinknowEvents">getNumMinknowEvents</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getNumReadsSinceMuxChange" href="#read5.Pod5Reader.Pod5Reader.getNumReadsSinceMuxChange">getNumReadsSinceMuxChange</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getPoreObject" href="#read5.Pod5Reader.Pod5Reader.getPoreObject">getPoreObject</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getPredictedScaling" href="#read5.Pod5Reader.Pod5Reader.getPredictedScaling">getPredictedScaling</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getProtocolStartTime_datetime" href="#read5.Pod5Reader.Pod5Reader.getProtocolStartTime_datetime">getProtocolStartTime_datetime</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getProtocolStartTime_fromRunInfo" href="#read5.Pod5Reader.Pod5Reader.getProtocolStartTime_fromRunInfo">getProtocolStartTime_fromRunInfo</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getReadObject" href="#read5.Pod5Reader.Pod5Reader.getReadObject">getReadObject</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getRunInfoObject" href="#read5.Pod5Reader.Pod5Reader.getRunInfoObject">getRunInfoObject</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getTimeSinceMuxChange" href="#read5.Pod5Reader.Pod5Reader.getTimeSinceMuxChange">getTimeSinceMuxChange</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getTrackingIDDict" href="#read5.Pod5Reader.Pod5Reader.getTrackingIDDict">getTrackingIDDict</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.getWellNumber" href="#read5.Pod5Reader.Pod5Reader.getWellNumber">getWellNumber</a></code></li>
+<li><code><a title="read5.Pod5Reader.Pod5Reader.isVBZCompressed" href="#read5.Pod5Reader.Pod5Reader.isVBZCompressed">isVBZCompressed</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

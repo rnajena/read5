@@ -1,0 +1,4067 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>read5.FileReader API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>read5.FileReader</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# author: Jannes Spangenberg
+# e-mail: jannes.spangenberg@uni-jena.de
+# github: https://github.com/JannesSP
+# website: https://jannessp.github.io
+
+from abc import abstractmethod
+import numpy as np
+
+from read5.Exceptions import UnknownNormalizationMode
+
+class FileReader():
+    &#39;&#39;&#39;
+    Abstract file reader class
+
+    Attributes
+    ----------
+    filepath : str
+        Path to the ONT raw data file
+    &#39;&#39;&#39;
+
+    ### abstract methods
+
+    @abstractmethod
+    def open(self) -&gt; None:
+        &#39;&#39;&#39;
+        Opens and loads the reads of the raw ONT file.
+        &#39;&#39;&#39;
+        pass
+        
+    @abstractmethod
+    def __getitem__(self, readid : str):
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        read
+            read dataset
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAsicID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Application Specific Integrated Circuit identifier (ASIC) of the flow cell (unique chip ID, enables tracking of batches of chips).
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        asic_id : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAsicIDEeprom(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        ID of the ASIC&#39;s electrically erasable programmable read-only memory (EEPROM) of the flow cell
+        
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        asic_id_eeprom : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAsicTemp(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        ASIC chip temperature in degrees celsius at start of sequencing
+        
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        asic_temp : float
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAsicVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        ASIC version
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        asic_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def isAutoUpdated(self, readid : str) -&gt; bool:
+        &#39;&#39;&#39;
+        Auto update in MinKNOW
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        status : bool
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAutoUpdateSource(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        URL to MinKNOW update source
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        url : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def isBarcodingEnabled(self, readid : str) -&gt; bool:
+        &#39;&#39;&#39;
+        Whether barcoding is enabled or not
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        status : bool
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def isBreamStandard(self, readid : str) -&gt; bool:
+        &#39;&#39;&#39;
+        Bream is a sequencing controlling software
+        
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        status : bool
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getCalibrationScale(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        scale : float
+            scale = range / digitisation
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getChannelNumber(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        channel : int
+            Number of the channel where the read was sequenced
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getConfigurationVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinKNOW configuration version including the experiment scripts
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        configuration_version : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getDeviceID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinION ID or GridION/PromethION device position ID
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        device_id : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getDeviceType(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Device type: MinION, PromethION or GridION
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        device_type : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getDigitisation(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Returns read calibration digitisation
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        digitisation : float
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getDistributionStatus(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        stable, dev, alpha or beta
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        distribution_status : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getDistributionVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinKNOW version
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        distribution_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getDuration(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        duration : int
+            length of raw signal, number of signal samples
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getEndReason(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Available since FAST5 v2.2
+        ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!
+
+        Returns
+        -------
+        end_reason : int
+            0 : unknown
+            1 : partial
+            2 : mux_change
+            3 : unblock_mux_change
+            4 : data_service_unblock_mux_change
+            5 : signal_positive
+            6 : signal_negative
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getExpScriptName(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Experiment name with selected kits and parameters in MinKNOW.
+        Also called protocol name in pod5.
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        exp_script_name : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getExpScriptPurpose(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        The purpose of the run: sequencing run or simulation playback
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        exp_script_purpose : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getExpStartTime(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Start time of the sequencing run in ISO 8601 standard
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        exp_start_time : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getExperimentDurationSet(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Experiment duration set when starting the sequencing run in minutes
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        duration : int
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getExperimentType(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Type of experiment, like DNA or RNA sequencing
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        experiment_type : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getFileVersion(self) -&gt; str:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        file_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getFlowCellID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Unique flow cell ID
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        flow_cell_id : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getFlowCellProductCode(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Product code of the flowcell and pore type
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        production_code : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getGuppyVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Guppy version used by MinKNOW
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        version : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getHeatSinkTemp(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Start temperature in degress celsius of the ASIC heat sink
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        temperature : float
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getHostProductCode(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Product code of the host computer
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        code : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getHostProductSerialNumber(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Serial number of the host computer
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        serial_number : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getHostname(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Computer on which the sequencing run is performed
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        hostname : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getInstallationType(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinKNOW installation type
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        installation_type : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def isLocalBasecalled(self, readid : str) -&gt; bool:
+        &#39;&#39;&#39;
+        Type of experiment, like DNA or RNA sequencing
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        status : bool
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getLocalFirmwareFile(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        firmware_file : int
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getMedianBefore(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Estimated current median preceding the read, can be used as an estimate of the open pore current (no strand inside the pore)
+        
+        Returns
+        -------
+        median_before : float
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getOffset(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        offset : float
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getOperatingSystem(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Operating system of the host computer
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        os : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getPackage(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Bream package used during sequencing
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        package : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getPackageVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Bream package version
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        package_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getpASignal(self, readid :str) -&gt; np.ndarray:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        pASignal : np.ndarray
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getPoreType(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        pore_type : str
+            can be &#39;not_set&#39;
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getProtocolGroupID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Unique acquisition period ID set by the user, also called &#39;group id&#39;
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        protocol_id : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getProtocolRunID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Experiment run ID
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        prot_run_id : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getProtocolStartTime(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Data acquisition period start time
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        prot_start_time : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getProtocolVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Protocol version (barcoding, kits, etc)
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        prot_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getRange(self, readid : str) -&gt; np.ndarray:
+        &#39;&#39;&#39;
+        Returns read calibration range
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        range : float
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getReadNumber(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        read_number : int
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getRunID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        run_id : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getSamplingRate(self, readid) -&gt; int:
+        &#39;&#39;&#39;
+        Measuring rate of the sensor during sequencing in Hz
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        samplingRate : int
+            sampling rate of the sequencing sensor used to sequence the given read
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getSampleID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Custom user given sample ID
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        sample_id : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getSequencingKit(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Sequencing kit selected by the user
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        kit : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getSignal(self, readid : str) -&gt; np.ndarray:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        signal : np.ndarray
+            Raw integer signal of readid
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getStartTime(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Sample number of the sequencing start of the provided read.
+        0 = start of sequencing
+        
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        startTime : int
+            start of sequencing unconverted
+        &#39;&#39;&#39;
+        pass
+
+    # @abstractmethod
+    # def getStartMux(self, readid : str) -&gt; int:
+    #     &#39;&#39;&#39;
+    #     Returns
+    #     -------
+    #     start_mux : int
+    #     &#39;&#39;&#39;
+    #     pass
+
+    @abstractmethod
+    def getUSBConfig(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Flow cell and host computer connection information
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        config : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinKNOW version
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        version : str
+        &#39;&#39;&#39;
+        pass
+
+    ### explicit functions
+
+    def __init__(self, filepath : str):
+        self._file = None
+        self._filepath : str = filepath
+        self._index : int = -1
+        self._nreads : int
+        self._reads : list
+        self.open()
+
+    def __iter__(self):
+        return self
+    
+    def __len__(self) -&gt; int:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        length : int
+            number of reads in the file
+        &#39;&#39;&#39;
+        return self._nreads
+    
+    def __next__(self):
+        self._index += 1
+        if self._index &gt;= self._nreads:
+            raise StopIteration
+        else:
+            return self._reads[self._index]
+    
+    def close(self) -&gt; None:
+        &#39;&#39;&#39;
+        Close the raw ONT file
+        &#39;&#39;&#39;
+        if self._open:
+            self._file.close()
+            self._open = False
+
+    def isOpen(self) -&gt; bool:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        flag : bool
+            open status of file
+        &#39;&#39;&#39;
+        return self._open
+
+    def getReads(self) -&gt; list:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        reads : list
+            list of read IDs within the file
+        &#39;&#39;&#39;
+        return self._reads
+    
+    def getShift(self, readid : str, mode : str = &#39;median&#39;) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+        mode : str
+            - &#39;median&#39;: using the median and mad for normalization
+            - &#39;mean&#39;: using the mean and std for normalization
+
+        Returns
+        -------
+        shift : float
+        &#39;&#39;&#39;
+        if mode == &#39;median&#39;:
+            return np.median(self.getpASignal(readid))
+        elif mode == &#39;mean&#39;:
+            return np.mean(self.getpASignal(readid))
+        else:
+            raise UnknownNormalizationMode
+
+    def getScale(self, readid : str, mode : str = &#39;median&#39;) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+        mode : str
+            - &#39;median&#39;: using the median and mad for normalization
+            - &#39;mean&#39;: using the mean and std for normalization
+
+        Returns
+        -------
+        scale : float
+        &#39;&#39;&#39;
+        if mode == &#39;median&#39;:
+            return 1.4826 * np.median(np.abs(self.getpASignal(readid) - self.getShift(readid, mode)))
+        elif mode == &#39;mean&#39;:
+            return np.std(self.getpASignal(readid))
+        else:
+            raise UnknownNormalizationMode
+        
+    def getZNormSignal(self, readid : str, mode : str = &#39;median&#39;) -&gt; np.ndarray:
+        &#39;&#39;&#39;
+        Normalize the read signal of the provided read
+
+        Parameter
+        ---------
+        readid : str
+        mode : str
+            - &#39;median&#39;: using the median and mad for normalization
+            - &#39;mean&#39;: using the mean and std for normalization
+
+        Returns
+        -------
+        normSignal : np.ndarray
+            Z normalized read signal
+        &#39;&#39;&#39;
+        return (self.getpASignal(readid) - self.getShift(readid, mode)) / self.getScale(readid, mode)
+    
+    def getStartTimeInMinutes(self, readid) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        startTime : int
+            start of sequencing converted to minutes after sequencing start
+        &#39;&#39;&#39;
+        return self.getStartTime(readid) / self.getSamplingRate(readid) / 60</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="read5.FileReader.FileReader"><code class="flex name class">
+<span>class <span class="ident">FileReader</span></span>
+<span>(</span><span>filepath: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract file reader class</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to the ONT raw data file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FileReader():
+    &#39;&#39;&#39;
+    Abstract file reader class
+
+    Attributes
+    ----------
+    filepath : str
+        Path to the ONT raw data file
+    &#39;&#39;&#39;
+
+    ### abstract methods
+
+    @abstractmethod
+    def open(self) -&gt; None:
+        &#39;&#39;&#39;
+        Opens and loads the reads of the raw ONT file.
+        &#39;&#39;&#39;
+        pass
+        
+    @abstractmethod
+    def __getitem__(self, readid : str):
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        read
+            read dataset
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAsicID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Application Specific Integrated Circuit identifier (ASIC) of the flow cell (unique chip ID, enables tracking of batches of chips).
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        asic_id : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAsicIDEeprom(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        ID of the ASIC&#39;s electrically erasable programmable read-only memory (EEPROM) of the flow cell
+        
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        asic_id_eeprom : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAsicTemp(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        ASIC chip temperature in degrees celsius at start of sequencing
+        
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        asic_temp : float
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAsicVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        ASIC version
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        asic_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def isAutoUpdated(self, readid : str) -&gt; bool:
+        &#39;&#39;&#39;
+        Auto update in MinKNOW
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        status : bool
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getAutoUpdateSource(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        URL to MinKNOW update source
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        url : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def isBarcodingEnabled(self, readid : str) -&gt; bool:
+        &#39;&#39;&#39;
+        Whether barcoding is enabled or not
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        status : bool
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def isBreamStandard(self, readid : str) -&gt; bool:
+        &#39;&#39;&#39;
+        Bream is a sequencing controlling software
+        
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        status : bool
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getCalibrationScale(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        scale : float
+            scale = range / digitisation
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getChannelNumber(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        channel : int
+            Number of the channel where the read was sequenced
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getConfigurationVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinKNOW configuration version including the experiment scripts
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        configuration_version : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getDeviceID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinION ID or GridION/PromethION device position ID
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        device_id : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getDeviceType(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Device type: MinION, PromethION or GridION
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        device_type : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getDigitisation(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Returns read calibration digitisation
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        digitisation : float
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getDistributionStatus(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        stable, dev, alpha or beta
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        distribution_status : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getDistributionVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinKNOW version
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        distribution_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getDuration(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        duration : int
+            length of raw signal, number of signal samples
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getEndReason(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Available since FAST5 v2.2
+        ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!
+
+        Returns
+        -------
+        end_reason : int
+            0 : unknown
+            1 : partial
+            2 : mux_change
+            3 : unblock_mux_change
+            4 : data_service_unblock_mux_change
+            5 : signal_positive
+            6 : signal_negative
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getExpScriptName(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Experiment name with selected kits and parameters in MinKNOW.
+        Also called protocol name in pod5.
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        exp_script_name : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getExpScriptPurpose(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        The purpose of the run: sequencing run or simulation playback
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        exp_script_purpose : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getExpStartTime(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Start time of the sequencing run in ISO 8601 standard
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        exp_start_time : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getExperimentDurationSet(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Experiment duration set when starting the sequencing run in minutes
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        duration : int
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getExperimentType(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Type of experiment, like DNA or RNA sequencing
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        experiment_type : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getFileVersion(self) -&gt; str:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        file_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getFlowCellID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Unique flow cell ID
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        flow_cell_id : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getFlowCellProductCode(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Product code of the flowcell and pore type
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        production_code : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getGuppyVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Guppy version used by MinKNOW
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        version : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getHeatSinkTemp(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Start temperature in degress celsius of the ASIC heat sink
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        temperature : float
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getHostProductCode(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Product code of the host computer
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        code : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getHostProductSerialNumber(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Serial number of the host computer
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        serial_number : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getHostname(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Computer on which the sequencing run is performed
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        hostname : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getInstallationType(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinKNOW installation type
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        installation_type : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def isLocalBasecalled(self, readid : str) -&gt; bool:
+        &#39;&#39;&#39;
+        Type of experiment, like DNA or RNA sequencing
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        status : bool
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getLocalFirmwareFile(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        firmware_file : int
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getMedianBefore(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Estimated current median preceding the read, can be used as an estimate of the open pore current (no strand inside the pore)
+        
+        Returns
+        -------
+        median_before : float
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getOffset(self, readid : str) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        offset : float
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getOperatingSystem(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Operating system of the host computer
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        os : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getPackage(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Bream package used during sequencing
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        package : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getPackageVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Bream package version
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        package_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getpASignal(self, readid :str) -&gt; np.ndarray:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        pASignal : np.ndarray
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getPoreType(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        pore_type : str
+            can be &#39;not_set&#39;
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getProtocolGroupID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Unique acquisition period ID set by the user, also called &#39;group id&#39;
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        protocol_id : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getProtocolRunID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Experiment run ID
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        prot_run_id : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getProtocolStartTime(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Data acquisition period start time
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        prot_start_time : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getProtocolVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Protocol version (barcoding, kits, etc)
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        prot_version : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getRange(self, readid : str) -&gt; np.ndarray:
+        &#39;&#39;&#39;
+        Returns read calibration range
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        range : float
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getReadNumber(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        read_number : int
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getRunID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        run_id : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getSamplingRate(self, readid) -&gt; int:
+        &#39;&#39;&#39;
+        Measuring rate of the sensor during sequencing in Hz
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        samplingRate : int
+            sampling rate of the sequencing sensor used to sequence the given read
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getSampleID(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Custom user given sample ID
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        sample_id : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getSequencingKit(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Sequencing kit selected by the user
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        kit : str
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getSignal(self, readid : str) -&gt; np.ndarray:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        signal : np.ndarray
+            Raw integer signal of readid
+        &#39;&#39;&#39;
+        pass
+
+    @abstractmethod
+    def getStartTime(self, readid : str) -&gt; int:
+        &#39;&#39;&#39;
+        Sample number of the sequencing start of the provided read.
+        0 = start of sequencing
+        
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        startTime : int
+            start of sequencing unconverted
+        &#39;&#39;&#39;
+        pass
+
+    # @abstractmethod
+    # def getStartMux(self, readid : str) -&gt; int:
+    #     &#39;&#39;&#39;
+    #     Returns
+    #     -------
+    #     start_mux : int
+    #     &#39;&#39;&#39;
+    #     pass
+
+    @abstractmethod
+    def getUSBConfig(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        Flow cell and host computer connection information
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        config : str
+        &#39;&#39;&#39;
+        pass
+    
+    @abstractmethod
+    def getVersion(self, readid : str) -&gt; str:
+        &#39;&#39;&#39;
+        MinKNOW version
+
+        Parameter
+        ---------
+        readid : str
+        
+        Returns
+        -------
+        version : str
+        &#39;&#39;&#39;
+        pass
+
+    ### explicit functions
+
+    def __init__(self, filepath : str):
+        self._file = None
+        self._filepath : str = filepath
+        self._index : int = -1
+        self._nreads : int
+        self._reads : list
+        self.open()
+
+    def __iter__(self):
+        return self
+    
+    def __len__(self) -&gt; int:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        length : int
+            number of reads in the file
+        &#39;&#39;&#39;
+        return self._nreads
+    
+    def __next__(self):
+        self._index += 1
+        if self._index &gt;= self._nreads:
+            raise StopIteration
+        else:
+            return self._reads[self._index]
+    
+    def close(self) -&gt; None:
+        &#39;&#39;&#39;
+        Close the raw ONT file
+        &#39;&#39;&#39;
+        if self._open:
+            self._file.close()
+            self._open = False
+
+    def isOpen(self) -&gt; bool:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        flag : bool
+            open status of file
+        &#39;&#39;&#39;
+        return self._open
+
+    def getReads(self) -&gt; list:
+        &#39;&#39;&#39;
+        Returns
+        -------
+        reads : list
+            list of read IDs within the file
+        &#39;&#39;&#39;
+        return self._reads
+    
+    def getShift(self, readid : str, mode : str = &#39;median&#39;) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+        mode : str
+            - &#39;median&#39;: using the median and mad for normalization
+            - &#39;mean&#39;: using the mean and std for normalization
+
+        Returns
+        -------
+        shift : float
+        &#39;&#39;&#39;
+        if mode == &#39;median&#39;:
+            return np.median(self.getpASignal(readid))
+        elif mode == &#39;mean&#39;:
+            return np.mean(self.getpASignal(readid))
+        else:
+            raise UnknownNormalizationMode
+
+    def getScale(self, readid : str, mode : str = &#39;median&#39;) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+        mode : str
+            - &#39;median&#39;: using the median and mad for normalization
+            - &#39;mean&#39;: using the mean and std for normalization
+
+        Returns
+        -------
+        scale : float
+        &#39;&#39;&#39;
+        if mode == &#39;median&#39;:
+            return 1.4826 * np.median(np.abs(self.getpASignal(readid) - self.getShift(readid, mode)))
+        elif mode == &#39;mean&#39;:
+            return np.std(self.getpASignal(readid))
+        else:
+            raise UnknownNormalizationMode
+        
+    def getZNormSignal(self, readid : str, mode : str = &#39;median&#39;) -&gt; np.ndarray:
+        &#39;&#39;&#39;
+        Normalize the read signal of the provided read
+
+        Parameter
+        ---------
+        readid : str
+        mode : str
+            - &#39;median&#39;: using the median and mad for normalization
+            - &#39;mean&#39;: using the mean and std for normalization
+
+        Returns
+        -------
+        normSignal : np.ndarray
+            Z normalized read signal
+        &#39;&#39;&#39;
+        return (self.getpASignal(readid) - self.getShift(readid, mode)) / self.getScale(readid, mode)
+    
+    def getStartTimeInMinutes(self, readid) -&gt; float:
+        &#39;&#39;&#39;
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        startTime : int
+            start of sequencing converted to minutes after sequencing start
+        &#39;&#39;&#39;
+        return self.getStartTime(readid) / self.getSamplingRate(readid) / 60</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="read5.Fast5Reader.Fast5Reader" href="Fast5Reader.html#read5.Fast5Reader.Fast5Reader">Fast5Reader</a></li>
+<li><a title="read5.Pod5Reader.Pod5Reader" href="Pod5Reader.html#read5.Pod5Reader.Pod5Reader">Pod5Reader</a></li>
+<li><a title="read5.Slow5Reader.Slow5Reader" href="Slow5Reader.html#read5.Slow5Reader.Slow5Reader">Slow5Reader</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="read5.FileReader.FileReader.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Close the raw ONT file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self) -&gt; None:
+    &#39;&#39;&#39;
+    Close the raw ONT file
+    &#39;&#39;&#39;
+    if self._open:
+        self._file.close()
+        self._open = False</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getAsicID"><code class="name flex">
+<span>def <span class="ident">getAsicID</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Application Specific Integrated Circuit identifier (ASIC) of the flow cell (unique chip ID, enables tracking of batches of chips).</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>asic_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getAsicID(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Application Specific Integrated Circuit identifier (ASIC) of the flow cell (unique chip ID, enables tracking of batches of chips).
+
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    asic_id : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getAsicIDEeprom"><code class="name flex">
+<span>def <span class="ident">getAsicIDEeprom</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ID of the ASIC's electrically erasable programmable read-only memory (EEPROM) of the flow cell</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>asic_id_eeprom</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getAsicIDEeprom(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    ID of the ASIC&#39;s electrically erasable programmable read-only memory (EEPROM) of the flow cell
+    
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    asic_id_eeprom : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getAsicTemp"><code class="name flex">
+<span>def <span class="ident">getAsicTemp</span></span>(<span>self, readid: str) -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ASIC chip temperature in degrees celsius at start of sequencing</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>asic_temp</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getAsicTemp(self, readid : str) -&gt; float:
+    &#39;&#39;&#39;
+    ASIC chip temperature in degrees celsius at start of sequencing
+    
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    asic_temp : float
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getAsicVersion"><code class="name flex">
+<span>def <span class="ident">getAsicVersion</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ASIC version</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>asic_version</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getAsicVersion(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    ASIC version
+
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    asic_version : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getAutoUpdateSource"><code class="name flex">
+<span>def <span class="ident">getAutoUpdateSource</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>URL to MinKNOW update source</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>url</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getAutoUpdateSource(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    URL to MinKNOW update source
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    url : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getCalibrationScale"><code class="name flex">
+<span>def <span class="ident">getCalibrationScale</span></span>(<span>self, readid: str) -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>scale</code></strong> :&ensp;<code>float</code></dt>
+<dd>scale = range / digitisation</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getCalibrationScale(self, readid : str) -&gt; float:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    scale : float
+        scale = range / digitisation
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getChannelNumber"><code class="name flex">
+<span>def <span class="ident">getChannelNumber</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>channel</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of the channel where the read was sequenced</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getChannelNumber(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    channel : int
+        Number of the channel where the read was sequenced
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getConfigurationVersion"><code class="name flex">
+<span>def <span class="ident">getConfigurationVersion</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>MinKNOW configuration version including the experiment scripts</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>configuration_version</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getConfigurationVersion(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    MinKNOW configuration version including the experiment scripts
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    configuration_version : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getDeviceID"><code class="name flex">
+<span>def <span class="ident">getDeviceID</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>MinION ID or GridION/PromethION device position ID</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>device_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getDeviceID(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    MinION ID or GridION/PromethION device position ID
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    device_id : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getDeviceType"><code class="name flex">
+<span>def <span class="ident">getDeviceType</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Device type: MinION, PromethION or GridION</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>device_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getDeviceType(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Device type: MinION, PromethION or GridION
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    device_type : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getDigitisation"><code class="name flex">
+<span>def <span class="ident">getDigitisation</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns read calibration digitisation</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>digitisation</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getDigitisation(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Returns read calibration digitisation
+
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    digitisation : float
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getDistributionStatus"><code class="name flex">
+<span>def <span class="ident">getDistributionStatus</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>stable, dev, alpha or beta</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>distribution_status</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getDistributionStatus(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    stable, dev, alpha or beta
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    distribution_status : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getDistributionVersion"><code class="name flex">
+<span>def <span class="ident">getDistributionVersion</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>MinKNOW version</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>distribution_version</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getDistributionVersion(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    MinKNOW version
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    distribution_version : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getDuration"><code class="name flex">
+<span>def <span class="ident">getDuration</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>duration</code></strong> :&ensp;<code>int</code></dt>
+<dd>length of raw signal, number of signal samples</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getDuration(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    duration : int
+        length of raw signal, number of signal samples
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getEndReason"><code class="name flex">
+<span>def <span class="ident">getEndReason</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Available since FAST5 v2.2
+ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>end_reason</code></strong> :&ensp;<code>int</code></dt>
+<dd>0 : unknown
+1 : partial
+2 : mux_change
+3 : unblock_mux_change
+4 : data_service_unblock_mux_change
+5 : signal_positive
+6 : signal_negative</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getEndReason(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Available since FAST5 v2.2
+    ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!
+
+    Returns
+    -------
+    end_reason : int
+        0 : unknown
+        1 : partial
+        2 : mux_change
+        3 : unblock_mux_change
+        4 : data_service_unblock_mux_change
+        5 : signal_positive
+        6 : signal_negative
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getExpScriptName"><code class="name flex">
+<span>def <span class="ident">getExpScriptName</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Experiment name with selected kits and parameters in MinKNOW.
+Also called protocol name in pod5.</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>exp_script_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getExpScriptName(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Experiment name with selected kits and parameters in MinKNOW.
+    Also called protocol name in pod5.
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    exp_script_name : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getExpScriptPurpose"><code class="name flex">
+<span>def <span class="ident">getExpScriptPurpose</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The purpose of the run: sequencing run or simulation playback</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>exp_script_purpose</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getExpScriptPurpose(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    The purpose of the run: sequencing run or simulation playback
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    exp_script_purpose : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getExpStartTime"><code class="name flex">
+<span>def <span class="ident">getExpStartTime</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Start time of the sequencing run in ISO 8601 standard</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>exp_start_time</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getExpStartTime(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Start time of the sequencing run in ISO 8601 standard
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    exp_start_time : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getExperimentDurationSet"><code class="name flex">
+<span>def <span class="ident">getExperimentDurationSet</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Experiment duration set when starting the sequencing run in minutes</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>duration</code></strong> :&ensp;<code>int</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getExperimentDurationSet(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Experiment duration set when starting the sequencing run in minutes
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    duration : int
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getExperimentType"><code class="name flex">
+<span>def <span class="ident">getExperimentType</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Type of experiment, like DNA or RNA sequencing</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>experiment_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getExperimentType(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Type of experiment, like DNA or RNA sequencing
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    experiment_type : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getFileVersion"><code class="name flex">
+<span>def <span class="ident">getFileVersion</span></span>(<span>self) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>file_version</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getFileVersion(self) -&gt; str:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    file_version : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getFlowCellID"><code class="name flex">
+<span>def <span class="ident">getFlowCellID</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Unique flow cell ID</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>flow_cell_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getFlowCellID(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Unique flow cell ID
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    flow_cell_id : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getFlowCellProductCode"><code class="name flex">
+<span>def <span class="ident">getFlowCellProductCode</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Product code of the flowcell and pore type</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>production_code</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getFlowCellProductCode(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Product code of the flowcell and pore type
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    production_code : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getGuppyVersion"><code class="name flex">
+<span>def <span class="ident">getGuppyVersion</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Guppy version used by MinKNOW</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>version</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getGuppyVersion(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Guppy version used by MinKNOW
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    version : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getHeatSinkTemp"><code class="name flex">
+<span>def <span class="ident">getHeatSinkTemp</span></span>(<span>self, readid: str) -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Start temperature in degress celsius of the ASIC heat sink</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>temperature</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getHeatSinkTemp(self, readid : str) -&gt; float:
+    &#39;&#39;&#39;
+    Start temperature in degress celsius of the ASIC heat sink
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    temperature : float
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getHostProductCode"><code class="name flex">
+<span>def <span class="ident">getHostProductCode</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Product code of the host computer</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>code</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getHostProductCode(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Product code of the host computer
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    code : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getHostProductSerialNumber"><code class="name flex">
+<span>def <span class="ident">getHostProductSerialNumber</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Serial number of the host computer</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>serial_number</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getHostProductSerialNumber(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Serial number of the host computer
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    serial_number : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getHostname"><code class="name flex">
+<span>def <span class="ident">getHostname</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Computer on which the sequencing run is performed</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>hostname</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getHostname(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Computer on which the sequencing run is performed
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    hostname : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getInstallationType"><code class="name flex">
+<span>def <span class="ident">getInstallationType</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>MinKNOW installation type</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>installation_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getInstallationType(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    MinKNOW installation type
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    installation_type : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getLocalFirmwareFile"><code class="name flex">
+<span>def <span class="ident">getLocalFirmwareFile</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>firmware_file</code></strong> :&ensp;<code>int</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getLocalFirmwareFile(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    firmware_file : int
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getMedianBefore"><code class="name flex">
+<span>def <span class="ident">getMedianBefore</span></span>(<span>self, readid: str) -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Estimated current median preceding the read, can be used as an estimate of the open pore current (no strand inside the pore)</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>median_before</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getMedianBefore(self, readid : str) -&gt; float:
+    &#39;&#39;&#39;
+    Estimated current median preceding the read, can be used as an estimate of the open pore current (no strand inside the pore)
+    
+    Returns
+    -------
+    median_before : float
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getOffset"><code class="name flex">
+<span>def <span class="ident">getOffset</span></span>(<span>self, readid: str) -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>offset</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getOffset(self, readid : str) -&gt; float:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    offset : float
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getOperatingSystem"><code class="name flex">
+<span>def <span class="ident">getOperatingSystem</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Operating system of the host computer</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>os</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getOperatingSystem(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Operating system of the host computer
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    os : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getPackage"><code class="name flex">
+<span>def <span class="ident">getPackage</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Bream package used during sequencing</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>package</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getPackage(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Bream package used during sequencing
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    package : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getPackageVersion"><code class="name flex">
+<span>def <span class="ident">getPackageVersion</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Bream package version</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>package_version</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getPackageVersion(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Bream package version
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    package_version : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getPoreType"><code class="name flex">
+<span>def <span class="ident">getPoreType</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>pore_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>can be 'not_set'</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getPoreType(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    pore_type : str
+        can be &#39;not_set&#39;
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getProtocolGroupID"><code class="name flex">
+<span>def <span class="ident">getProtocolGroupID</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Unique acquisition period ID set by the user, also called 'group id'</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>protocol_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getProtocolGroupID(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Unique acquisition period ID set by the user, also called &#39;group id&#39;
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    protocol_id : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getProtocolRunID"><code class="name flex">
+<span>def <span class="ident">getProtocolRunID</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Experiment run ID</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>prot_run_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getProtocolRunID(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Experiment run ID
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    prot_run_id : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getProtocolStartTime"><code class="name flex">
+<span>def <span class="ident">getProtocolStartTime</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Data acquisition period start time</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>prot_start_time</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getProtocolStartTime(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Data acquisition period start time
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    prot_start_time : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getProtocolVersion"><code class="name flex">
+<span>def <span class="ident">getProtocolVersion</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Protocol version (barcoding, kits, etc)</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>prot_version</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getProtocolVersion(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Protocol version (barcoding, kits, etc)
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    prot_version : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getRange"><code class="name flex">
+<span>def <span class="ident">getRange</span></span>(<span>self, readid: str) -> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns read calibration range</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>range</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getRange(self, readid : str) -&gt; np.ndarray:
+    &#39;&#39;&#39;
+    Returns read calibration range
+
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    range : float
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getReadNumber"><code class="name flex">
+<span>def <span class="ident">getReadNumber</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>read_number</code></strong> :&ensp;<code>int</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getReadNumber(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    read_number : int
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getReads"><code class="name flex">
+<span>def <span class="ident">getReads</span></span>(<span>self) -> list</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>reads</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of read IDs within the file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getReads(self) -&gt; list:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    reads : list
+        list of read IDs within the file
+    &#39;&#39;&#39;
+    return self._reads</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getRunID"><code class="name flex">
+<span>def <span class="ident">getRunID</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>run_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getRunID(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    run_id : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getSampleID"><code class="name flex">
+<span>def <span class="ident">getSampleID</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Custom user given sample ID</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sample_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getSampleID(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Custom user given sample ID
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    sample_id : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getSamplingRate"><code class="name flex">
+<span>def <span class="ident">getSamplingRate</span></span>(<span>self, readid) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Measuring rate of the sensor during sequencing in Hz</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>samplingRate</code></strong> :&ensp;<code>int</code></dt>
+<dd>sampling rate of the sequencing sensor used to sequence the given read</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getSamplingRate(self, readid) -&gt; int:
+    &#39;&#39;&#39;
+    Measuring rate of the sensor during sequencing in Hz
+
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    samplingRate : int
+        sampling rate of the sequencing sensor used to sequence the given read
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getScale"><code class="name flex">
+<span>def <span class="ident">getScale</span></span>(<span>self, readid: str, mode: str = 'median') -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str
+mode : str
+- 'median': using the median and mad for normalization
+- 'mean': using the mean and std for normalization</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>scale</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getScale(self, readid : str, mode : str = &#39;median&#39;) -&gt; float:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+    mode : str
+        - &#39;median&#39;: using the median and mad for normalization
+        - &#39;mean&#39;: using the mean and std for normalization
+
+    Returns
+    -------
+    scale : float
+    &#39;&#39;&#39;
+    if mode == &#39;median&#39;:
+        return 1.4826 * np.median(np.abs(self.getpASignal(readid) - self.getShift(readid, mode)))
+    elif mode == &#39;mean&#39;:
+        return np.std(self.getpASignal(readid))
+    else:
+        raise UnknownNormalizationMode</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getSequencingKit"><code class="name flex">
+<span>def <span class="ident">getSequencingKit</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sequencing kit selected by the user</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>kit</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getSequencingKit(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Sequencing kit selected by the user
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    kit : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getShift"><code class="name flex">
+<span>def <span class="ident">getShift</span></span>(<span>self, readid: str, mode: str = 'median') -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str
+mode : str
+- 'median': using the median and mad for normalization
+- 'mean': using the mean and std for normalization</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>shift</code></strong> :&ensp;<code>float</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getShift(self, readid : str, mode : str = &#39;median&#39;) -&gt; float:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+    mode : str
+        - &#39;median&#39;: using the median and mad for normalization
+        - &#39;mean&#39;: using the mean and std for normalization
+
+    Returns
+    -------
+    shift : float
+    &#39;&#39;&#39;
+    if mode == &#39;median&#39;:
+        return np.median(self.getpASignal(readid))
+    elif mode == &#39;mean&#39;:
+        return np.mean(self.getpASignal(readid))
+    else:
+        raise UnknownNormalizationMode</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getSignal"><code class="name flex">
+<span>def <span class="ident">getSignal</span></span>(<span>self, readid: str) -> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>signal</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Raw integer signal of readid</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getSignal(self, readid : str) -&gt; np.ndarray:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    signal : np.ndarray
+        Raw integer signal of readid
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getStartTime"><code class="name flex">
+<span>def <span class="ident">getStartTime</span></span>(<span>self, readid: str) -> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sample number of the sequencing start of the provided read.
+0 = start of sequencing</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>startTime</code></strong> :&ensp;<code>int</code></dt>
+<dd>start of sequencing unconverted</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getStartTime(self, readid : str) -&gt; int:
+    &#39;&#39;&#39;
+    Sample number of the sequencing start of the provided read.
+    0 = start of sequencing
+    
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    startTime : int
+        start of sequencing unconverted
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getStartTimeInMinutes"><code class="name flex">
+<span>def <span class="ident">getStartTimeInMinutes</span></span>(<span>self, readid) -> float</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>startTime</code></strong> :&ensp;<code>int</code></dt>
+<dd>start of sequencing converted to minutes after sequencing start</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getStartTimeInMinutes(self, readid) -&gt; float:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    startTime : int
+        start of sequencing converted to minutes after sequencing start
+    &#39;&#39;&#39;
+    return self.getStartTime(readid) / self.getSamplingRate(readid) / 60</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getUSBConfig"><code class="name flex">
+<span>def <span class="ident">getUSBConfig</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Flow cell and host computer connection information</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getUSBConfig(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    Flow cell and host computer connection information
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    config : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getVersion"><code class="name flex">
+<span>def <span class="ident">getVersion</span></span>(<span>self, readid: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>MinKNOW version</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>version</code></strong> :&ensp;<code>str</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getVersion(self, readid : str) -&gt; str:
+    &#39;&#39;&#39;
+    MinKNOW version
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    version : str
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getZNormSignal"><code class="name flex">
+<span>def <span class="ident">getZNormSignal</span></span>(<span>self, readid: str, mode: str = 'median') -> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Normalize the read signal of the provided read</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str
+mode : str
+- 'median': using the median and mad for normalization
+- 'mean': using the mean and std for normalization</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>normSignal</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Z normalized read signal</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getZNormSignal(self, readid : str, mode : str = &#39;median&#39;) -&gt; np.ndarray:
+    &#39;&#39;&#39;
+    Normalize the read signal of the provided read
+
+    Parameter
+    ---------
+    readid : str
+    mode : str
+        - &#39;median&#39;: using the median and mad for normalization
+        - &#39;mean&#39;: using the mean and std for normalization
+
+    Returns
+    -------
+    normSignal : np.ndarray
+        Z normalized read signal
+    &#39;&#39;&#39;
+    return (self.getpASignal(readid) - self.getShift(readid, mode)) / self.getScale(readid, mode)</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.getpASignal"><code class="name flex">
+<span>def <span class="ident">getpASignal</span></span>(<span>self, readid: str) -> numpy.ndarray</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>pASignal</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def getpASignal(self, readid :str) -&gt; np.ndarray:
+    &#39;&#39;&#39;
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    pASignal : np.ndarray
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.isAutoUpdated"><code class="name flex">
+<span>def <span class="ident">isAutoUpdated</span></span>(<span>self, readid: str) -> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Auto update in MinKNOW</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>status</code></strong> :&ensp;<code>bool</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def isAutoUpdated(self, readid : str) -&gt; bool:
+    &#39;&#39;&#39;
+    Auto update in MinKNOW
+
+    Parameter
+    ---------
+    readid : str
+
+    Returns
+    -------
+    status : bool
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.isBarcodingEnabled"><code class="name flex">
+<span>def <span class="ident">isBarcodingEnabled</span></span>(<span>self, readid: str) -> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Whether barcoding is enabled or not</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>status</code></strong> :&ensp;<code>bool</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def isBarcodingEnabled(self, readid : str) -&gt; bool:
+    &#39;&#39;&#39;
+    Whether barcoding is enabled or not
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    status : bool
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.isBreamStandard"><code class="name flex">
+<span>def <span class="ident">isBreamStandard</span></span>(<span>self, readid: str) -> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Bream is a sequencing controlling software</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>status</code></strong> :&ensp;<code>bool</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def isBreamStandard(self, readid : str) -&gt; bool:
+    &#39;&#39;&#39;
+    Bream is a sequencing controlling software
+    
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    status : bool
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.isLocalBasecalled"><code class="name flex">
+<span>def <span class="ident">isLocalBasecalled</span></span>(<span>self, readid: str) -> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Type of experiment, like DNA or RNA sequencing</p>
+<h2 id="parameter">Parameter</h2>
+<p>readid : str</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>status</code></strong> :&ensp;<code>bool</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def isLocalBasecalled(self, readid : str) -&gt; bool:
+    &#39;&#39;&#39;
+    Type of experiment, like DNA or RNA sequencing
+
+    Parameter
+    ---------
+    readid : str
+    
+    Returns
+    -------
+    status : bool
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.isOpen"><code class="name flex">
+<span>def <span class="ident">isOpen</span></span>(<span>self) -> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>flag</code></strong> :&ensp;<code>bool</code></dt>
+<dd>open status of file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isOpen(self) -&gt; bool:
+    &#39;&#39;&#39;
+    Returns
+    -------
+    flag : bool
+        open status of file
+    &#39;&#39;&#39;
+    return self._open</code></pre>
+</details>
+</dd>
+<dt id="read5.FileReader.FileReader.open"><code class="name flex">
+<span>def <span class="ident">open</span></span>(<span>self) -> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Opens and loads the reads of the raw ONT file.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def open(self) -&gt; None:
+    &#39;&#39;&#39;
+    Opens and loads the reads of the raw ONT file.
+    &#39;&#39;&#39;
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="read5" href="index.html">read5</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="read5.FileReader.FileReader" href="#read5.FileReader.FileReader">FileReader</a></code></h4>
+<ul class="">
+<li><code><a title="read5.FileReader.FileReader.close" href="#read5.FileReader.FileReader.close">close</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAsicID" href="#read5.FileReader.FileReader.getAsicID">getAsicID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAsicIDEeprom" href="#read5.FileReader.FileReader.getAsicIDEeprom">getAsicIDEeprom</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAsicTemp" href="#read5.FileReader.FileReader.getAsicTemp">getAsicTemp</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAsicVersion" href="#read5.FileReader.FileReader.getAsicVersion">getAsicVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getAutoUpdateSource" href="#read5.FileReader.FileReader.getAutoUpdateSource">getAutoUpdateSource</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getCalibrationScale" href="#read5.FileReader.FileReader.getCalibrationScale">getCalibrationScale</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getChannelNumber" href="#read5.FileReader.FileReader.getChannelNumber">getChannelNumber</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getConfigurationVersion" href="#read5.FileReader.FileReader.getConfigurationVersion">getConfigurationVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDeviceID" href="#read5.FileReader.FileReader.getDeviceID">getDeviceID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDeviceType" href="#read5.FileReader.FileReader.getDeviceType">getDeviceType</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDigitisation" href="#read5.FileReader.FileReader.getDigitisation">getDigitisation</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDistributionStatus" href="#read5.FileReader.FileReader.getDistributionStatus">getDistributionStatus</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDistributionVersion" href="#read5.FileReader.FileReader.getDistributionVersion">getDistributionVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getDuration" href="#read5.FileReader.FileReader.getDuration">getDuration</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getEndReason" href="#read5.FileReader.FileReader.getEndReason">getEndReason</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExpScriptName" href="#read5.FileReader.FileReader.getExpScriptName">getExpScriptName</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExpScriptPurpose" href="#read5.FileReader.FileReader.getExpScriptPurpose">getExpScriptPurpose</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExpStartTime" href="#read5.FileReader.FileReader.getExpStartTime">getExpStartTime</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExperimentDurationSet" href="#read5.FileReader.FileReader.getExperimentDurationSet">getExperimentDurationSet</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getExperimentType" href="#read5.FileReader.FileReader.getExperimentType">getExperimentType</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getFileVersion" href="#read5.FileReader.FileReader.getFileVersion">getFileVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getFlowCellID" href="#read5.FileReader.FileReader.getFlowCellID">getFlowCellID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getFlowCellProductCode" href="#read5.FileReader.FileReader.getFlowCellProductCode">getFlowCellProductCode</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getGuppyVersion" href="#read5.FileReader.FileReader.getGuppyVersion">getGuppyVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getHeatSinkTemp" href="#read5.FileReader.FileReader.getHeatSinkTemp">getHeatSinkTemp</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getHostProductCode" href="#read5.FileReader.FileReader.getHostProductCode">getHostProductCode</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getHostProductSerialNumber" href="#read5.FileReader.FileReader.getHostProductSerialNumber">getHostProductSerialNumber</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getHostname" href="#read5.FileReader.FileReader.getHostname">getHostname</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getInstallationType" href="#read5.FileReader.FileReader.getInstallationType">getInstallationType</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getLocalFirmwareFile" href="#read5.FileReader.FileReader.getLocalFirmwareFile">getLocalFirmwareFile</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getMedianBefore" href="#read5.FileReader.FileReader.getMedianBefore">getMedianBefore</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getOffset" href="#read5.FileReader.FileReader.getOffset">getOffset</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getOperatingSystem" href="#read5.FileReader.FileReader.getOperatingSystem">getOperatingSystem</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getPackage" href="#read5.FileReader.FileReader.getPackage">getPackage</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getPackageVersion" href="#read5.FileReader.FileReader.getPackageVersion">getPackageVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getPoreType" href="#read5.FileReader.FileReader.getPoreType">getPoreType</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getProtocolGroupID" href="#read5.FileReader.FileReader.getProtocolGroupID">getProtocolGroupID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getProtocolRunID" href="#read5.FileReader.FileReader.getProtocolRunID">getProtocolRunID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getProtocolStartTime" href="#read5.FileReader.FileReader.getProtocolStartTime">getProtocolStartTime</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getProtocolVersion" href="#read5.FileReader.FileReader.getProtocolVersion">getProtocolVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getRange" href="#read5.FileReader.FileReader.getRange">getRange</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getReadNumber" href="#read5.FileReader.FileReader.getReadNumber">getReadNumber</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getReads" href="#read5.FileReader.FileReader.getReads">getReads</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getRunID" href="#read5.FileReader.FileReader.getRunID">getRunID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getSampleID" href="#read5.FileReader.FileReader.getSampleID">getSampleID</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getSamplingRate" href="#read5.FileReader.FileReader.getSamplingRate">getSamplingRate</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getScale" href="#read5.FileReader.FileReader.getScale">getScale</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getSequencingKit" href="#read5.FileReader.FileReader.getSequencingKit">getSequencingKit</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getShift" href="#read5.FileReader.FileReader.getShift">getShift</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getSignal" href="#read5.FileReader.FileReader.getSignal">getSignal</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getStartTime" href="#read5.FileReader.FileReader.getStartTime">getStartTime</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getStartTimeInMinutes" href="#read5.FileReader.FileReader.getStartTimeInMinutes">getStartTimeInMinutes</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getUSBConfig" href="#read5.FileReader.FileReader.getUSBConfig">getUSBConfig</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getVersion" href="#read5.FileReader.FileReader.getVersion">getVersion</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getZNormSignal" href="#read5.FileReader.FileReader.getZNormSignal">getZNormSignal</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.getpASignal" href="#read5.FileReader.FileReader.getpASignal">getpASignal</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isAutoUpdated" href="#read5.FileReader.FileReader.isAutoUpdated">isAutoUpdated</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isBarcodingEnabled" href="#read5.FileReader.FileReader.isBarcodingEnabled">isBarcodingEnabled</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isBreamStandard" href="#read5.FileReader.FileReader.isBreamStandard">isBreamStandard</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isLocalBasecalled" href="#read5.FileReader.FileReader.isLocalBasecalled">isLocalBasecalled</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.isOpen" href="#read5.FileReader.FileReader.isOpen">isOpen</a></code></li>
+<li><code><a title="read5.FileReader.FileReader.open" href="#read5.FileReader.FileReader.open">open</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
