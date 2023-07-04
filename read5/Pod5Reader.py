@@ -5,11 +5,11 @@
 # website: https://jannessp.github.io
 
 import uuid
-from read5.FileReader import *
+from read5.AbstractFileReader import *
 import pod5
 import datetime
 
-class Pod5Reader(FileReader):
+class Pod5Reader(AbstractFileReader):
     '''
     File reader for pod5 files
     '''

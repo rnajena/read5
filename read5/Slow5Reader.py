@@ -4,10 +4,10 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from read5.FileReader import *
+from read5.AbstractFileReader import *
 import pyslow5
 
-class Slow5Reader(FileReader):
+class Slow5Reader(AbstractFileReader):
     '''
     File reader for slow5 or blow5 files
 

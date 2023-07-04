@@ -9,7 +9,7 @@ from read5.Fast5Reader import Fast5Reader
 from read5.Pod5Reader import Pod5Reader
 from read5.Slow5Reader import Slow5Reader
 
-def read5(filepath : str):
+def read(filepath : str):
     '''
     Autodetect file format using extension.
     Raises UnknownFormatException if format is unknown.
@@ -23,7 +23,7 @@ def read5(filepath : str):
         return Fast5Reader(filepath)
     elif filepath.lower().endswith('.slow5') or filepath.lower().endswith('.blow5'):
         return Slow5Reader(filepath=filepath)
-    elif filepath.lower().endswith('pod5'):
+    elif filepath.lower().endswith('.pod5'):
         return Pod5Reader(filepath)
     else:
         raise UnknownFileFormatException(f'Unknown file format: {filepath.split(".")[-1]}')

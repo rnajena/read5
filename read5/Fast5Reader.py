@@ -4,10 +4,10 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from read5.FileReader import *
+from read5.AbstractFileReader import *
 import h5py
 
-class Fast5Reader(FileReader):
+class Fast5Reader(AbstractFileReader):
     '''
     File reader for fast5 files
 
