@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import versioneer
 
 requirements = [
@@ -19,7 +19,7 @@ setup(
     author="Jannes Spangenberg",
     author_email='jannes.spangenberg@uni-jena.de',
     url='https://github.com/JannesSP/Read5',
-    packages=['read5'],
+    packages=find_packages(),
     
     install_requires=requirements,
     keywords=['Read5', 'slow5', 'blow5', 'fast5', 'pod5', 'ONT', 'Oxford Nanopore Technologies', 'Nanopore', 'raw data'],
