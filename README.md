@@ -37,9 +37,9 @@ ___
 Small example:
 
 ```python
-from read5.read5 import read5
+from read5.Reader import read
 
-r5 = read5(my_file) # file with on of these extensions: .fast5, .slow5, .blow5, .pod5
+r5 = read(my_file) # file with on of these extensions: .fast5, .slow5, .blow5, .pod5
 for readid in r5:
     signal = r5.getSignal(readid)
     norm_signal = r5.getZNormSignal(readid) # returns normalised read signal: norm_signal = (signal - median(signal)) / mad(signal)
