@@ -17,6 +17,13 @@ class Slow5Reader(AbstractFileReader):
         number of threads to use in C backend
     batchsize : int
         number of reads to fetch at a time. Higher numbers use more ram, but is more efficient with more threads.
+    filepath : str
+        Path to the ONT raw data file
+
+    Raises
+    ------
+    FileNotFoundError
+        If the given file does not exist.
     '''
     def __init__(self, threads : int = 1, batchsize : int = 1, *args, **kwargs):
         self._threads = threads

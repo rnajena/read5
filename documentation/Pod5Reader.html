@@ -38,6 +38,16 @@ import datetime
 class Pod5Reader(AbstractFileReader):
     &#39;&#39;&#39;
     File reader for pod5 files
+
+    Attributes
+    ----------
+    filepath : str
+        Path to the ONT raw data file
+
+    Raises
+    ------
+    FileNotFoundError
+        If the given file does not exist.
     &#39;&#39;&#39;
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -376,7 +386,17 @@ class Pod5Reader(AbstractFileReader):
 <span>(</span><span>*args, **kwargs)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>File reader for pod5 files</p></div>
+<div class="desc"><p>File reader for pod5 files</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to the ONT raw data file</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>FileNotFoundError</code></dt>
+<dd>If the given file does not exist.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -384,6 +404,16 @@ class Pod5Reader(AbstractFileReader):
 <pre><code class="python">class Pod5Reader(AbstractFileReader):
     &#39;&#39;&#39;
     File reader for pod5 files
+
+    Attributes
+    ----------
+    filepath : str
+        Path to the ONT raw data file
+
+    Raises
+    ------
+    FileNotFoundError
+        If the given file does not exist.
     &#39;&#39;&#39;
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

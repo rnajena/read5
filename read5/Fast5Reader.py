@@ -15,6 +15,11 @@ class Fast5Reader(AbstractFileReader):
     ----------
     filepath : str
         Path to the ONT raw data file
+
+    Raises
+    ------
+    FileNotFoundError
+        If the given file does not exist.
     '''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

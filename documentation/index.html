@@ -26,7 +26,16 @@
 </summary>
 <pre><code class="python">from ._version import get_versions
 __version__ = get_versions()[&#39;version&#39;]
-del get_versions</code></pre>
+del get_versions
+
+from . import Reader
+from . import Fast5Reader
+from . import Pod5Reader
+from . import Slow5Reader
+from . import Exceptions
+from . import AbstractFileReader
+
+__all__ = [&#34;Reader&#34;, &#34;Fast5Reader&#34;, &#34;Pod5Reader&#34;, &#34;Slow5Reader&#34;, &#34;Exceptions&#34;, &#34;AbstractFileReader&#34;]</code></pre>
 </details>
 </section>
 <section>

@@ -16,6 +16,11 @@ class AbstractFileReader():
     ----------
     filepath : str
         Path to the ONT raw data file
+
+    Raises
+    ------
+    FileNotFoundError
+        If the given file does not exist.
     '''
 
     ### abstract methods

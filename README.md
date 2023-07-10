@@ -49,3 +49,7 @@ for readid in r5:
 
 readid_list = r5.getReads()
 ```
+
+## Full Documentation
+Created with [pdoc3](https://pdoc3.github.io/pdoc/).
+Can be found [here](https://jannessp.github.io/read5.github.io/).
