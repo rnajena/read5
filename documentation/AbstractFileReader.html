@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.1" />
-<title>read5.FileReader API documentation</title>
+<title>read5.AbstractFileReader API documentation</title>
 <meta name="description" content="" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
@@ -17,7 +17,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>read5.FileReader</code></h1>
+<h1 class="title">Module <code>read5.AbstractFileReader</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
@@ -32,10 +32,9 @@
 
 from abc import abstractmethod
 import numpy as np
-
 from read5.Exceptions import UnknownNormalizationMode
 
-class FileReader():
+class AbstractFileReader():
     &#39;&#39;&#39;
     Abstract file reader class
 
@@ -1017,8 +1016,8 @@ class FileReader():
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="read5.FileReader.FileReader"><code class="flex name class">
-<span>class <span class="ident">FileReader</span></span>
+<dt id="read5.AbstractFileReader.AbstractFileReader"><code class="flex name class">
+<span>class <span class="ident">AbstractFileReader</span></span>
 <span>(</span><span>filepath: str)</span>
 </code></dt>
 <dd>
@@ -1032,7 +1031,7 @@ class FileReader():
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class FileReader():
+<pre><code class="python">class AbstractFileReader():
     &#39;&#39;&#39;
     Abstract file reader class
 
@@ -2012,7 +2011,7 @@ class FileReader():
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="read5.FileReader.FileReader.close"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.close"><code class="name flex">
 <span>def <span class="ident">close</span></span>(<span>self) -> NoneType</span>
 </code></dt>
 <dd>
@@ -2030,7 +2029,7 @@ class FileReader():
         self._open = False</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getAsicID"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getAsicID"><code class="name flex">
 <span>def <span class="ident">getAsicID</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2062,7 +2061,7 @@ def getAsicID(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getAsicIDEeprom"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getAsicIDEeprom"><code class="name flex">
 <span>def <span class="ident">getAsicIDEeprom</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2094,7 +2093,7 @@ def getAsicIDEeprom(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getAsicTemp"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getAsicTemp"><code class="name flex">
 <span>def <span class="ident">getAsicTemp</span></span>(<span>self, readid: str) -> float</span>
 </code></dt>
 <dd>
@@ -2126,7 +2125,7 @@ def getAsicTemp(self, readid : str) -&gt; float:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getAsicVersion"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getAsicVersion"><code class="name flex">
 <span>def <span class="ident">getAsicVersion</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2158,7 +2157,7 @@ def getAsicVersion(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getAutoUpdateSource"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getAutoUpdateSource"><code class="name flex">
 <span>def <span class="ident">getAutoUpdateSource</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2190,7 +2189,7 @@ def getAutoUpdateSource(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getCalibrationScale"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getCalibrationScale"><code class="name flex">
 <span>def <span class="ident">getCalibrationScale</span></span>(<span>self, readid: str) -> float</span>
 </code></dt>
 <dd>
@@ -2220,7 +2219,7 @@ def getCalibrationScale(self, readid : str) -&gt; float:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getChannelNumber"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getChannelNumber"><code class="name flex">
 <span>def <span class="ident">getChannelNumber</span></span>(<span>self, readid: str) -> int</span>
 </code></dt>
 <dd>
@@ -2250,7 +2249,7 @@ def getChannelNumber(self, readid : str) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getConfigurationVersion"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getConfigurationVersion"><code class="name flex">
 <span>def <span class="ident">getConfigurationVersion</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2282,7 +2281,7 @@ def getConfigurationVersion(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getDeviceID"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getDeviceID"><code class="name flex">
 <span>def <span class="ident">getDeviceID</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2314,7 +2313,7 @@ def getDeviceID(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getDeviceType"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getDeviceType"><code class="name flex">
 <span>def <span class="ident">getDeviceType</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2346,7 +2345,7 @@ def getDeviceType(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getDigitisation"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getDigitisation"><code class="name flex">
 <span>def <span class="ident">getDigitisation</span></span>(<span>self, readid: str) -> int</span>
 </code></dt>
 <dd>
@@ -2378,7 +2377,7 @@ def getDigitisation(self, readid : str) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getDistributionStatus"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getDistributionStatus"><code class="name flex">
 <span>def <span class="ident">getDistributionStatus</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2410,7 +2409,7 @@ def getDistributionStatus(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getDistributionVersion"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getDistributionVersion"><code class="name flex">
 <span>def <span class="ident">getDistributionVersion</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2442,7 +2441,7 @@ def getDistributionVersion(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getDuration"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getDuration"><code class="name flex">
 <span>def <span class="ident">getDuration</span></span>(<span>self, readid: str) -> int</span>
 </code></dt>
 <dd>
@@ -2466,7 +2465,7 @@ def getDuration(self, readid : str) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getEndReason"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getEndReason"><code class="name flex">
 <span>def <span class="ident">getEndReason</span></span>(<span>self, readid: str) -> int</span>
 </code></dt>
 <dd>
@@ -2507,7 +2506,7 @@ def getEndReason(self, readid : str) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getExpScriptName"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getExpScriptName"><code class="name flex">
 <span>def <span class="ident">getExpScriptName</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2541,7 +2540,7 @@ def getExpScriptName(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getExpScriptPurpose"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getExpScriptPurpose"><code class="name flex">
 <span>def <span class="ident">getExpScriptPurpose</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2573,7 +2572,7 @@ def getExpScriptPurpose(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getExpStartTime"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getExpStartTime"><code class="name flex">
 <span>def <span class="ident">getExpStartTime</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2605,7 +2604,7 @@ def getExpStartTime(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getExperimentDurationSet"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getExperimentDurationSet"><code class="name flex">
 <span>def <span class="ident">getExperimentDurationSet</span></span>(<span>self, readid: str) -> int</span>
 </code></dt>
 <dd>
@@ -2637,7 +2636,7 @@ def getExperimentDurationSet(self, readid : str) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getExperimentType"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getExperimentType"><code class="name flex">
 <span>def <span class="ident">getExperimentType</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2669,7 +2668,7 @@ def getExperimentType(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getFileVersion"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getFileVersion"><code class="name flex">
 <span>def <span class="ident">getFileVersion</span></span>(<span>self) -> str</span>
 </code></dt>
 <dd>
@@ -2692,7 +2691,7 @@ def getFileVersion(self) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getFlowCellID"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getFlowCellID"><code class="name flex">
 <span>def <span class="ident">getFlowCellID</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2724,7 +2723,7 @@ def getFlowCellID(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getFlowCellProductCode"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getFlowCellProductCode"><code class="name flex">
 <span>def <span class="ident">getFlowCellProductCode</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2756,7 +2755,7 @@ def getFlowCellProductCode(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getGuppyVersion"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getGuppyVersion"><code class="name flex">
 <span>def <span class="ident">getGuppyVersion</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2788,7 +2787,7 @@ def getGuppyVersion(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getHeatSinkTemp"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getHeatSinkTemp"><code class="name flex">
 <span>def <span class="ident">getHeatSinkTemp</span></span>(<span>self, readid: str) -> float</span>
 </code></dt>
 <dd>
@@ -2820,7 +2819,7 @@ def getHeatSinkTemp(self, readid : str) -&gt; float:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getHostProductCode"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getHostProductCode"><code class="name flex">
 <span>def <span class="ident">getHostProductCode</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2852,7 +2851,7 @@ def getHostProductCode(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getHostProductSerialNumber"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getHostProductSerialNumber"><code class="name flex">
 <span>def <span class="ident">getHostProductSerialNumber</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2884,7 +2883,7 @@ def getHostProductSerialNumber(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getHostname"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getHostname"><code class="name flex">
 <span>def <span class="ident">getHostname</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2916,7 +2915,7 @@ def getHostname(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getInstallationType"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getInstallationType"><code class="name flex">
 <span>def <span class="ident">getInstallationType</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -2948,7 +2947,7 @@ def getInstallationType(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getLocalFirmwareFile"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getLocalFirmwareFile"><code class="name flex">
 <span>def <span class="ident">getLocalFirmwareFile</span></span>(<span>self, readid: str) -> int</span>
 </code></dt>
 <dd>
@@ -2977,7 +2976,7 @@ def getLocalFirmwareFile(self, readid : str) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getMedianBefore"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getMedianBefore"><code class="name flex">
 <span>def <span class="ident">getMedianBefore</span></span>(<span>self, readid: str) -> float</span>
 </code></dt>
 <dd>
@@ -3003,7 +3002,7 @@ def getMedianBefore(self, readid : str) -&gt; float:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getOffset"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getOffset"><code class="name flex">
 <span>def <span class="ident">getOffset</span></span>(<span>self, readid: str) -> float</span>
 </code></dt>
 <dd>
@@ -3032,7 +3031,7 @@ def getOffset(self, readid : str) -&gt; float:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getOperatingSystem"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getOperatingSystem"><code class="name flex">
 <span>def <span class="ident">getOperatingSystem</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3064,7 +3063,7 @@ def getOperatingSystem(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getPackage"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getPackage"><code class="name flex">
 <span>def <span class="ident">getPackage</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3096,7 +3095,7 @@ def getPackage(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getPackageVersion"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getPackageVersion"><code class="name flex">
 <span>def <span class="ident">getPackageVersion</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3128,7 +3127,7 @@ def getPackageVersion(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getPoreType"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getPoreType"><code class="name flex">
 <span>def <span class="ident">getPoreType</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3158,7 +3157,7 @@ def getPoreType(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getProtocolGroupID"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getProtocolGroupID"><code class="name flex">
 <span>def <span class="ident">getProtocolGroupID</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3190,7 +3189,7 @@ def getProtocolGroupID(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getProtocolRunID"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getProtocolRunID"><code class="name flex">
 <span>def <span class="ident">getProtocolRunID</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3222,7 +3221,7 @@ def getProtocolRunID(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getProtocolStartTime"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getProtocolStartTime"><code class="name flex">
 <span>def <span class="ident">getProtocolStartTime</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3254,7 +3253,7 @@ def getProtocolStartTime(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getProtocolVersion"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getProtocolVersion"><code class="name flex">
 <span>def <span class="ident">getProtocolVersion</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3286,7 +3285,7 @@ def getProtocolVersion(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getRange"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getRange"><code class="name flex">
 <span>def <span class="ident">getRange</span></span>(<span>self, readid: str) -> numpy.ndarray</span>
 </code></dt>
 <dd>
@@ -3318,7 +3317,7 @@ def getRange(self, readid : str) -&gt; np.ndarray:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getReadNumber"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getReadNumber"><code class="name flex">
 <span>def <span class="ident">getReadNumber</span></span>(<span>self, readid: str) -> int</span>
 </code></dt>
 <dd>
@@ -3347,7 +3346,7 @@ def getReadNumber(self, readid : str) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getReads"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getReads"><code class="name flex">
 <span>def <span class="ident">getReads</span></span>(<span>self) -> list</span>
 </code></dt>
 <dd>
@@ -3370,7 +3369,7 @@ def getReadNumber(self, readid : str) -&gt; int:
     return self._reads</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getRunID"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getRunID"><code class="name flex">
 <span>def <span class="ident">getRunID</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3399,7 +3398,7 @@ def getRunID(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getSampleID"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getSampleID"><code class="name flex">
 <span>def <span class="ident">getSampleID</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3431,7 +3430,7 @@ def getSampleID(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getSamplingRate"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getSamplingRate"><code class="name flex">
 <span>def <span class="ident">getSamplingRate</span></span>(<span>self, readid) -> int</span>
 </code></dt>
 <dd>
@@ -3464,7 +3463,7 @@ def getSamplingRate(self, readid) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getScale"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getScale"><code class="name flex">
 <span>def <span class="ident">getScale</span></span>(<span>self, readid: str, mode: str = 'median') -> float</span>
 </code></dt>
 <dd>
@@ -3503,7 +3502,7 @@ mode : str
         raise UnknownNormalizationMode</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getSequencingKit"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getSequencingKit"><code class="name flex">
 <span>def <span class="ident">getSequencingKit</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3535,7 +3534,7 @@ def getSequencingKit(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getShift"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getShift"><code class="name flex">
 <span>def <span class="ident">getShift</span></span>(<span>self, readid: str, mode: str = 'median') -> float</span>
 </code></dt>
 <dd>
@@ -3574,7 +3573,7 @@ mode : str
         raise UnknownNormalizationMode</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getSignal"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getSignal"><code class="name flex">
 <span>def <span class="ident">getSignal</span></span>(<span>self, readid: str) -> numpy.ndarray</span>
 </code></dt>
 <dd>
@@ -3604,7 +3603,7 @@ def getSignal(self, readid : str) -&gt; np.ndarray:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getStartTime"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getStartTime"><code class="name flex">
 <span>def <span class="ident">getStartTime</span></span>(<span>self, readid: str) -> int</span>
 </code></dt>
 <dd>
@@ -3639,7 +3638,7 @@ def getStartTime(self, readid : str) -&gt; int:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getStartTimeInMinutes"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getStartTimeInMinutes"><code class="name flex">
 <span>def <span class="ident">getStartTimeInMinutes</span></span>(<span>self, readid) -> float</span>
 </code></dt>
 <dd>
@@ -3668,7 +3667,7 @@ def getStartTime(self, readid : str) -&gt; int:
     return self.getStartTime(readid) / self.getSamplingRate(readid) / 60</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getUSBConfig"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getUSBConfig"><code class="name flex">
 <span>def <span class="ident">getUSBConfig</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3700,7 +3699,7 @@ def getUSBConfig(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getVersion"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getVersion"><code class="name flex">
 <span>def <span class="ident">getVersion</span></span>(<span>self, readid: str) -> str</span>
 </code></dt>
 <dd>
@@ -3732,7 +3731,7 @@ def getVersion(self, readid : str) -&gt; str:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getZNormSignal"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getZNormSignal"><code class="name flex">
 <span>def <span class="ident">getZNormSignal</span></span>(<span>self, readid: str, mode: str = 'median') -> numpy.ndarray</span>
 </code></dt>
 <dd>
@@ -3770,7 +3769,7 @@ mode : str
     return (self.getpASignal(readid) - self.getShift(readid, mode)) / self.getScale(readid, mode)</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.getpASignal"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.getpASignal"><code class="name flex">
 <span>def <span class="ident">getpASignal</span></span>(<span>self, readid: str) -> numpy.ndarray</span>
 </code></dt>
 <dd>
@@ -3799,7 +3798,7 @@ def getpASignal(self, readid :str) -&gt; np.ndarray:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.isAutoUpdated"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.isAutoUpdated"><code class="name flex">
 <span>def <span class="ident">isAutoUpdated</span></span>(<span>self, readid: str) -> bool</span>
 </code></dt>
 <dd>
@@ -3831,7 +3830,7 @@ def isAutoUpdated(self, readid : str) -&gt; bool:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.isBarcodingEnabled"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.isBarcodingEnabled"><code class="name flex">
 <span>def <span class="ident">isBarcodingEnabled</span></span>(<span>self, readid: str) -> bool</span>
 </code></dt>
 <dd>
@@ -3863,7 +3862,7 @@ def isBarcodingEnabled(self, readid : str) -&gt; bool:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.isBreamStandard"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.isBreamStandard"><code class="name flex">
 <span>def <span class="ident">isBreamStandard</span></span>(<span>self, readid: str) -> bool</span>
 </code></dt>
 <dd>
@@ -3895,7 +3894,7 @@ def isBreamStandard(self, readid : str) -&gt; bool:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.isLocalBasecalled"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.isLocalBasecalled"><code class="name flex">
 <span>def <span class="ident">isLocalBasecalled</span></span>(<span>self, readid: str) -> bool</span>
 </code></dt>
 <dd>
@@ -3927,7 +3926,7 @@ def isLocalBasecalled(self, readid : str) -&gt; bool:
     pass</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.isOpen"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.isOpen"><code class="name flex">
 <span>def <span class="ident">isOpen</span></span>(<span>self) -> bool</span>
 </code></dt>
 <dd>
@@ -3950,7 +3949,7 @@ def isLocalBasecalled(self, readid : str) -&gt; bool:
     return self._open</code></pre>
 </details>
 </dd>
-<dt id="read5.FileReader.FileReader.open"><code class="name flex">
+<dt id="read5.AbstractFileReader.AbstractFileReader.open"><code class="name flex">
 <span>def <span class="ident">open</span></span>(<span>self) -> NoneType</span>
 </code></dt>
 <dd>
@@ -3986,71 +3985,71 @@ def open(self) -&gt; None:
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="read5.FileReader.FileReader" href="#read5.FileReader.FileReader">FileReader</a></code></h4>
+<h4><code><a title="read5.AbstractFileReader.AbstractFileReader" href="#read5.AbstractFileReader.AbstractFileReader">AbstractFileReader</a></code></h4>
 <ul class="">
-<li><code><a title="read5.FileReader.FileReader.close" href="#read5.FileReader.FileReader.close">close</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAsicID" href="#read5.FileReader.FileReader.getAsicID">getAsicID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAsicIDEeprom" href="#read5.FileReader.FileReader.getAsicIDEeprom">getAsicIDEeprom</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAsicTemp" href="#read5.FileReader.FileReader.getAsicTemp">getAsicTemp</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAsicVersion" href="#read5.FileReader.FileReader.getAsicVersion">getAsicVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAutoUpdateSource" href="#read5.FileReader.FileReader.getAutoUpdateSource">getAutoUpdateSource</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getCalibrationScale" href="#read5.FileReader.FileReader.getCalibrationScale">getCalibrationScale</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getChannelNumber" href="#read5.FileReader.FileReader.getChannelNumber">getChannelNumber</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getConfigurationVersion" href="#read5.FileReader.FileReader.getConfigurationVersion">getConfigurationVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDeviceID" href="#read5.FileReader.FileReader.getDeviceID">getDeviceID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDeviceType" href="#read5.FileReader.FileReader.getDeviceType">getDeviceType</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDigitisation" href="#read5.FileReader.FileReader.getDigitisation">getDigitisation</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDistributionStatus" href="#read5.FileReader.FileReader.getDistributionStatus">getDistributionStatus</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDistributionVersion" href="#read5.FileReader.FileReader.getDistributionVersion">getDistributionVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDuration" href="#read5.FileReader.FileReader.getDuration">getDuration</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getEndReason" href="#read5.FileReader.FileReader.getEndReason">getEndReason</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExpScriptName" href="#read5.FileReader.FileReader.getExpScriptName">getExpScriptName</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExpScriptPurpose" href="#read5.FileReader.FileReader.getExpScriptPurpose">getExpScriptPurpose</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExpStartTime" href="#read5.FileReader.FileReader.getExpStartTime">getExpStartTime</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExperimentDurationSet" href="#read5.FileReader.FileReader.getExperimentDurationSet">getExperimentDurationSet</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExperimentType" href="#read5.FileReader.FileReader.getExperimentType">getExperimentType</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getFileVersion" href="#read5.FileReader.FileReader.getFileVersion">getFileVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getFlowCellID" href="#read5.FileReader.FileReader.getFlowCellID">getFlowCellID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getFlowCellProductCode" href="#read5.FileReader.FileReader.getFlowCellProductCode">getFlowCellProductCode</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getGuppyVersion" href="#read5.FileReader.FileReader.getGuppyVersion">getGuppyVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getHeatSinkTemp" href="#read5.FileReader.FileReader.getHeatSinkTemp">getHeatSinkTemp</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getHostProductCode" href="#read5.FileReader.FileReader.getHostProductCode">getHostProductCode</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getHostProductSerialNumber" href="#read5.FileReader.FileReader.getHostProductSerialNumber">getHostProductSerialNumber</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getHostname" href="#read5.FileReader.FileReader.getHostname">getHostname</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getInstallationType" href="#read5.FileReader.FileReader.getInstallationType">getInstallationType</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getLocalFirmwareFile" href="#read5.FileReader.FileReader.getLocalFirmwareFile">getLocalFirmwareFile</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getMedianBefore" href="#read5.FileReader.FileReader.getMedianBefore">getMedianBefore</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getOffset" href="#read5.FileReader.FileReader.getOffset">getOffset</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getOperatingSystem" href="#read5.FileReader.FileReader.getOperatingSystem">getOperatingSystem</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getPackage" href="#read5.FileReader.FileReader.getPackage">getPackage</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getPackageVersion" href="#read5.FileReader.FileReader.getPackageVersion">getPackageVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getPoreType" href="#read5.FileReader.FileReader.getPoreType">getPoreType</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getProtocolGroupID" href="#read5.FileReader.FileReader.getProtocolGroupID">getProtocolGroupID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getProtocolRunID" href="#read5.FileReader.FileReader.getProtocolRunID">getProtocolRunID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getProtocolStartTime" href="#read5.FileReader.FileReader.getProtocolStartTime">getProtocolStartTime</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getProtocolVersion" href="#read5.FileReader.FileReader.getProtocolVersion">getProtocolVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getRange" href="#read5.FileReader.FileReader.getRange">getRange</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getReadNumber" href="#read5.FileReader.FileReader.getReadNumber">getReadNumber</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getReads" href="#read5.FileReader.FileReader.getReads">getReads</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getRunID" href="#read5.FileReader.FileReader.getRunID">getRunID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getSampleID" href="#read5.FileReader.FileReader.getSampleID">getSampleID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getSamplingRate" href="#read5.FileReader.FileReader.getSamplingRate">getSamplingRate</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getScale" href="#read5.FileReader.FileReader.getScale">getScale</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getSequencingKit" href="#read5.FileReader.FileReader.getSequencingKit">getSequencingKit</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getShift" href="#read5.FileReader.FileReader.getShift">getShift</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getSignal" href="#read5.FileReader.FileReader.getSignal">getSignal</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getStartTime" href="#read5.FileReader.FileReader.getStartTime">getStartTime</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getStartTimeInMinutes" href="#read5.FileReader.FileReader.getStartTimeInMinutes">getStartTimeInMinutes</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getUSBConfig" href="#read5.FileReader.FileReader.getUSBConfig">getUSBConfig</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getVersion" href="#read5.FileReader.FileReader.getVersion">getVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getZNormSignal" href="#read5.FileReader.FileReader.getZNormSignal">getZNormSignal</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getpASignal" href="#read5.FileReader.FileReader.getpASignal">getpASignal</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isAutoUpdated" href="#read5.FileReader.FileReader.isAutoUpdated">isAutoUpdated</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isBarcodingEnabled" href="#read5.FileReader.FileReader.isBarcodingEnabled">isBarcodingEnabled</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isBreamStandard" href="#read5.FileReader.FileReader.isBreamStandard">isBreamStandard</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isLocalBasecalled" href="#read5.FileReader.FileReader.isLocalBasecalled">isLocalBasecalled</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isOpen" href="#read5.FileReader.FileReader.isOpen">isOpen</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.open" href="#read5.FileReader.FileReader.open">open</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.close" href="#read5.AbstractFileReader.AbstractFileReader.close">close</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAsicID" href="#read5.AbstractFileReader.AbstractFileReader.getAsicID">getAsicID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAsicIDEeprom" href="#read5.AbstractFileReader.AbstractFileReader.getAsicIDEeprom">getAsicIDEeprom</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAsicTemp" href="#read5.AbstractFileReader.AbstractFileReader.getAsicTemp">getAsicTemp</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAsicVersion" href="#read5.AbstractFileReader.AbstractFileReader.getAsicVersion">getAsicVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAutoUpdateSource" href="#read5.AbstractFileReader.AbstractFileReader.getAutoUpdateSource">getAutoUpdateSource</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getCalibrationScale" href="#read5.AbstractFileReader.AbstractFileReader.getCalibrationScale">getCalibrationScale</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getChannelNumber" href="#read5.AbstractFileReader.AbstractFileReader.getChannelNumber">getChannelNumber</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getConfigurationVersion" href="#read5.AbstractFileReader.AbstractFileReader.getConfigurationVersion">getConfigurationVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDeviceID" href="#read5.AbstractFileReader.AbstractFileReader.getDeviceID">getDeviceID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDeviceType" href="#read5.AbstractFileReader.AbstractFileReader.getDeviceType">getDeviceType</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDigitisation" href="#read5.AbstractFileReader.AbstractFileReader.getDigitisation">getDigitisation</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDistributionStatus" href="#read5.AbstractFileReader.AbstractFileReader.getDistributionStatus">getDistributionStatus</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDistributionVersion" href="#read5.AbstractFileReader.AbstractFileReader.getDistributionVersion">getDistributionVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDuration" href="#read5.AbstractFileReader.AbstractFileReader.getDuration">getDuration</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getEndReason" href="#read5.AbstractFileReader.AbstractFileReader.getEndReason">getEndReason</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExpScriptName" href="#read5.AbstractFileReader.AbstractFileReader.getExpScriptName">getExpScriptName</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExpScriptPurpose" href="#read5.AbstractFileReader.AbstractFileReader.getExpScriptPurpose">getExpScriptPurpose</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExpStartTime" href="#read5.AbstractFileReader.AbstractFileReader.getExpStartTime">getExpStartTime</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExperimentDurationSet" href="#read5.AbstractFileReader.AbstractFileReader.getExperimentDurationSet">getExperimentDurationSet</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExperimentType" href="#read5.AbstractFileReader.AbstractFileReader.getExperimentType">getExperimentType</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getFileVersion" href="#read5.AbstractFileReader.AbstractFileReader.getFileVersion">getFileVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getFlowCellID" href="#read5.AbstractFileReader.AbstractFileReader.getFlowCellID">getFlowCellID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getFlowCellProductCode" href="#read5.AbstractFileReader.AbstractFileReader.getFlowCellProductCode">getFlowCellProductCode</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getGuppyVersion" href="#read5.AbstractFileReader.AbstractFileReader.getGuppyVersion">getGuppyVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getHeatSinkTemp" href="#read5.AbstractFileReader.AbstractFileReader.getHeatSinkTemp">getHeatSinkTemp</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getHostProductCode" href="#read5.AbstractFileReader.AbstractFileReader.getHostProductCode">getHostProductCode</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getHostProductSerialNumber" href="#read5.AbstractFileReader.AbstractFileReader.getHostProductSerialNumber">getHostProductSerialNumber</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getHostname" href="#read5.AbstractFileReader.AbstractFileReader.getHostname">getHostname</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getInstallationType" href="#read5.AbstractFileReader.AbstractFileReader.getInstallationType">getInstallationType</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getLocalFirmwareFile" href="#read5.AbstractFileReader.AbstractFileReader.getLocalFirmwareFile">getLocalFirmwareFile</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getMedianBefore" href="#read5.AbstractFileReader.AbstractFileReader.getMedianBefore">getMedianBefore</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getOffset" href="#read5.AbstractFileReader.AbstractFileReader.getOffset">getOffset</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getOperatingSystem" href="#read5.AbstractFileReader.AbstractFileReader.getOperatingSystem">getOperatingSystem</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getPackage" href="#read5.AbstractFileReader.AbstractFileReader.getPackage">getPackage</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getPackageVersion" href="#read5.AbstractFileReader.AbstractFileReader.getPackageVersion">getPackageVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getPoreType" href="#read5.AbstractFileReader.AbstractFileReader.getPoreType">getPoreType</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getProtocolGroupID" href="#read5.AbstractFileReader.AbstractFileReader.getProtocolGroupID">getProtocolGroupID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getProtocolRunID" href="#read5.AbstractFileReader.AbstractFileReader.getProtocolRunID">getProtocolRunID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getProtocolStartTime" href="#read5.AbstractFileReader.AbstractFileReader.getProtocolStartTime">getProtocolStartTime</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getProtocolVersion" href="#read5.AbstractFileReader.AbstractFileReader.getProtocolVersion">getProtocolVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getRange" href="#read5.AbstractFileReader.AbstractFileReader.getRange">getRange</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getReadNumber" href="#read5.AbstractFileReader.AbstractFileReader.getReadNumber">getReadNumber</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getReads" href="#read5.AbstractFileReader.AbstractFileReader.getReads">getReads</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getRunID" href="#read5.AbstractFileReader.AbstractFileReader.getRunID">getRunID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getSampleID" href="#read5.AbstractFileReader.AbstractFileReader.getSampleID">getSampleID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getSamplingRate" href="#read5.AbstractFileReader.AbstractFileReader.getSamplingRate">getSamplingRate</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getScale" href="#read5.AbstractFileReader.AbstractFileReader.getScale">getScale</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getSequencingKit" href="#read5.AbstractFileReader.AbstractFileReader.getSequencingKit">getSequencingKit</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getShift" href="#read5.AbstractFileReader.AbstractFileReader.getShift">getShift</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getSignal" href="#read5.AbstractFileReader.AbstractFileReader.getSignal">getSignal</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getStartTime" href="#read5.AbstractFileReader.AbstractFileReader.getStartTime">getStartTime</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getStartTimeInMinutes" href="#read5.AbstractFileReader.AbstractFileReader.getStartTimeInMinutes">getStartTimeInMinutes</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getUSBConfig" href="#read5.AbstractFileReader.AbstractFileReader.getUSBConfig">getUSBConfig</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getVersion" href="#read5.AbstractFileReader.AbstractFileReader.getVersion">getVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getZNormSignal" href="#read5.AbstractFileReader.AbstractFileReader.getZNormSignal">getZNormSignal</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getpASignal" href="#read5.AbstractFileReader.AbstractFileReader.getpASignal">getpASignal</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isAutoUpdated" href="#read5.AbstractFileReader.AbstractFileReader.isAutoUpdated">isAutoUpdated</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isBarcodingEnabled" href="#read5.AbstractFileReader.AbstractFileReader.isBarcodingEnabled">isBarcodingEnabled</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isBreamStandard" href="#read5.AbstractFileReader.AbstractFileReader.isBreamStandard">isBreamStandard</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isLocalBasecalled" href="#read5.AbstractFileReader.AbstractFileReader.isLocalBasecalled">isLocalBasecalled</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isOpen" href="#read5.AbstractFileReader.AbstractFileReader.isOpen">isOpen</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.open" href="#read5.AbstractFileReader.AbstractFileReader.open">open</a></code></li>
 </ul>
 </li>
 </ul>

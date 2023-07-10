@@ -30,10 +30,10 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from read5.FileReader import *
+from read5.AbstractFileReader import *
 import pyslow5
 
-class Slow5Reader(FileReader):
+class Slow5Reader(AbstractFileReader):
     &#39;&#39;&#39;
     File reader for slow5 or blow5 files
 
@@ -279,7 +279,7 @@ class Slow5Reader(FileReader):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Slow5Reader(FileReader):
+<pre><code class="python">class Slow5Reader(AbstractFileReader):
     &#39;&#39;&#39;
     File reader for slow5 or blow5 files
 
@@ -500,7 +500,7 @@ class Slow5Reader(FileReader):
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="read5.FileReader.FileReader" href="FileReader.html#read5.FileReader.FileReader">FileReader</a></li>
+<li><a title="read5.AbstractFileReader.AbstractFileReader" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader">AbstractFileReader</a></li>
 </ul>
 <h3>Methods</h3>
 <dl>
@@ -574,71 +574,71 @@ class Slow5Reader(FileReader):
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="read5.FileReader.FileReader" href="FileReader.html#read5.FileReader.FileReader">FileReader</a></b></code>:
+<li><code><b><a title="read5.AbstractFileReader.AbstractFileReader" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader">AbstractFileReader</a></b></code>:
 <ul class="hlist">
-<li><code><a title="read5.FileReader.FileReader.close" href="FileReader.html#read5.FileReader.FileReader.close">close</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAsicID" href="FileReader.html#read5.FileReader.FileReader.getAsicID">getAsicID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAsicIDEeprom" href="FileReader.html#read5.FileReader.FileReader.getAsicIDEeprom">getAsicIDEeprom</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAsicTemp" href="FileReader.html#read5.FileReader.FileReader.getAsicTemp">getAsicTemp</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAsicVersion" href="FileReader.html#read5.FileReader.FileReader.getAsicVersion">getAsicVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getAutoUpdateSource" href="FileReader.html#read5.FileReader.FileReader.getAutoUpdateSource">getAutoUpdateSource</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getCalibrationScale" href="FileReader.html#read5.FileReader.FileReader.getCalibrationScale">getCalibrationScale</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getChannelNumber" href="FileReader.html#read5.FileReader.FileReader.getChannelNumber">getChannelNumber</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getConfigurationVersion" href="FileReader.html#read5.FileReader.FileReader.getConfigurationVersion">getConfigurationVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDeviceID" href="FileReader.html#read5.FileReader.FileReader.getDeviceID">getDeviceID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDeviceType" href="FileReader.html#read5.FileReader.FileReader.getDeviceType">getDeviceType</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDigitisation" href="FileReader.html#read5.FileReader.FileReader.getDigitisation">getDigitisation</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDistributionStatus" href="FileReader.html#read5.FileReader.FileReader.getDistributionStatus">getDistributionStatus</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDistributionVersion" href="FileReader.html#read5.FileReader.FileReader.getDistributionVersion">getDistributionVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getDuration" href="FileReader.html#read5.FileReader.FileReader.getDuration">getDuration</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getEndReason" href="FileReader.html#read5.FileReader.FileReader.getEndReason">getEndReason</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExpScriptName" href="FileReader.html#read5.FileReader.FileReader.getExpScriptName">getExpScriptName</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExpScriptPurpose" href="FileReader.html#read5.FileReader.FileReader.getExpScriptPurpose">getExpScriptPurpose</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExpStartTime" href="FileReader.html#read5.FileReader.FileReader.getExpStartTime">getExpStartTime</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExperimentDurationSet" href="FileReader.html#read5.FileReader.FileReader.getExperimentDurationSet">getExperimentDurationSet</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getExperimentType" href="FileReader.html#read5.FileReader.FileReader.getExperimentType">getExperimentType</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getFileVersion" href="FileReader.html#read5.FileReader.FileReader.getFileVersion">getFileVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getFlowCellID" href="FileReader.html#read5.FileReader.FileReader.getFlowCellID">getFlowCellID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getFlowCellProductCode" href="FileReader.html#read5.FileReader.FileReader.getFlowCellProductCode">getFlowCellProductCode</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getGuppyVersion" href="FileReader.html#read5.FileReader.FileReader.getGuppyVersion">getGuppyVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getHeatSinkTemp" href="FileReader.html#read5.FileReader.FileReader.getHeatSinkTemp">getHeatSinkTemp</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getHostProductCode" href="FileReader.html#read5.FileReader.FileReader.getHostProductCode">getHostProductCode</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getHostProductSerialNumber" href="FileReader.html#read5.FileReader.FileReader.getHostProductSerialNumber">getHostProductSerialNumber</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getHostname" href="FileReader.html#read5.FileReader.FileReader.getHostname">getHostname</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getInstallationType" href="FileReader.html#read5.FileReader.FileReader.getInstallationType">getInstallationType</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getLocalFirmwareFile" href="FileReader.html#read5.FileReader.FileReader.getLocalFirmwareFile">getLocalFirmwareFile</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getMedianBefore" href="FileReader.html#read5.FileReader.FileReader.getMedianBefore">getMedianBefore</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getOffset" href="FileReader.html#read5.FileReader.FileReader.getOffset">getOffset</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getOperatingSystem" href="FileReader.html#read5.FileReader.FileReader.getOperatingSystem">getOperatingSystem</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getPackage" href="FileReader.html#read5.FileReader.FileReader.getPackage">getPackage</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getPackageVersion" href="FileReader.html#read5.FileReader.FileReader.getPackageVersion">getPackageVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getPoreType" href="FileReader.html#read5.FileReader.FileReader.getPoreType">getPoreType</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getProtocolGroupID" href="FileReader.html#read5.FileReader.FileReader.getProtocolGroupID">getProtocolGroupID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getProtocolRunID" href="FileReader.html#read5.FileReader.FileReader.getProtocolRunID">getProtocolRunID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getProtocolStartTime" href="FileReader.html#read5.FileReader.FileReader.getProtocolStartTime">getProtocolStartTime</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getProtocolVersion" href="FileReader.html#read5.FileReader.FileReader.getProtocolVersion">getProtocolVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getRange" href="FileReader.html#read5.FileReader.FileReader.getRange">getRange</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getReadNumber" href="FileReader.html#read5.FileReader.FileReader.getReadNumber">getReadNumber</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getReads" href="FileReader.html#read5.FileReader.FileReader.getReads">getReads</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getRunID" href="FileReader.html#read5.FileReader.FileReader.getRunID">getRunID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getSampleID" href="FileReader.html#read5.FileReader.FileReader.getSampleID">getSampleID</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getSamplingRate" href="FileReader.html#read5.FileReader.FileReader.getSamplingRate">getSamplingRate</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getScale" href="FileReader.html#read5.FileReader.FileReader.getScale">getScale</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getSequencingKit" href="FileReader.html#read5.FileReader.FileReader.getSequencingKit">getSequencingKit</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getShift" href="FileReader.html#read5.FileReader.FileReader.getShift">getShift</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getSignal" href="FileReader.html#read5.FileReader.FileReader.getSignal">getSignal</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getStartTime" href="FileReader.html#read5.FileReader.FileReader.getStartTime">getStartTime</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getStartTimeInMinutes" href="FileReader.html#read5.FileReader.FileReader.getStartTimeInMinutes">getStartTimeInMinutes</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getUSBConfig" href="FileReader.html#read5.FileReader.FileReader.getUSBConfig">getUSBConfig</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getVersion" href="FileReader.html#read5.FileReader.FileReader.getVersion">getVersion</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getZNormSignal" href="FileReader.html#read5.FileReader.FileReader.getZNormSignal">getZNormSignal</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.getpASignal" href="FileReader.html#read5.FileReader.FileReader.getpASignal">getpASignal</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isAutoUpdated" href="FileReader.html#read5.FileReader.FileReader.isAutoUpdated">isAutoUpdated</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isBarcodingEnabled" href="FileReader.html#read5.FileReader.FileReader.isBarcodingEnabled">isBarcodingEnabled</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isBreamStandard" href="FileReader.html#read5.FileReader.FileReader.isBreamStandard">isBreamStandard</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isLocalBasecalled" href="FileReader.html#read5.FileReader.FileReader.isLocalBasecalled">isLocalBasecalled</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.isOpen" href="FileReader.html#read5.FileReader.FileReader.isOpen">isOpen</a></code></li>
-<li><code><a title="read5.FileReader.FileReader.open" href="FileReader.html#read5.FileReader.FileReader.open">open</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.close" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.close">close</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAsicID" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getAsicID">getAsicID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAsicIDEeprom" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getAsicIDEeprom">getAsicIDEeprom</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAsicTemp" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getAsicTemp">getAsicTemp</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAsicVersion" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getAsicVersion">getAsicVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getAutoUpdateSource" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getAutoUpdateSource">getAutoUpdateSource</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getCalibrationScale" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getCalibrationScale">getCalibrationScale</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getChannelNumber" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getChannelNumber">getChannelNumber</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getConfigurationVersion" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getConfigurationVersion">getConfigurationVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDeviceID" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getDeviceID">getDeviceID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDeviceType" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getDeviceType">getDeviceType</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDigitisation" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getDigitisation">getDigitisation</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDistributionStatus" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getDistributionStatus">getDistributionStatus</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDistributionVersion" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getDistributionVersion">getDistributionVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getDuration" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getDuration">getDuration</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getEndReason" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getEndReason">getEndReason</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExpScriptName" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getExpScriptName">getExpScriptName</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExpScriptPurpose" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getExpScriptPurpose">getExpScriptPurpose</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExpStartTime" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getExpStartTime">getExpStartTime</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExperimentDurationSet" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getExperimentDurationSet">getExperimentDurationSet</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getExperimentType" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getExperimentType">getExperimentType</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getFileVersion" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getFileVersion">getFileVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getFlowCellID" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getFlowCellID">getFlowCellID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getFlowCellProductCode" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getFlowCellProductCode">getFlowCellProductCode</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getGuppyVersion" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getGuppyVersion">getGuppyVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getHeatSinkTemp" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getHeatSinkTemp">getHeatSinkTemp</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getHostProductCode" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getHostProductCode">getHostProductCode</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getHostProductSerialNumber" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getHostProductSerialNumber">getHostProductSerialNumber</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getHostname" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getHostname">getHostname</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getInstallationType" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getInstallationType">getInstallationType</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getLocalFirmwareFile" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getLocalFirmwareFile">getLocalFirmwareFile</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getMedianBefore" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getMedianBefore">getMedianBefore</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getOffset" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getOffset">getOffset</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getOperatingSystem" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getOperatingSystem">getOperatingSystem</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getPackage" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getPackage">getPackage</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getPackageVersion" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getPackageVersion">getPackageVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getPoreType" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getPoreType">getPoreType</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getProtocolGroupID" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getProtocolGroupID">getProtocolGroupID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getProtocolRunID" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getProtocolRunID">getProtocolRunID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getProtocolStartTime" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getProtocolStartTime">getProtocolStartTime</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getProtocolVersion" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getProtocolVersion">getProtocolVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getRange" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getRange">getRange</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getReadNumber" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getReadNumber">getReadNumber</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getReads" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getReads">getReads</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getRunID" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getRunID">getRunID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getSampleID" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getSampleID">getSampleID</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getSamplingRate" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getSamplingRate">getSamplingRate</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getScale" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getScale">getScale</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getSequencingKit" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getSequencingKit">getSequencingKit</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getShift" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getShift">getShift</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getSignal" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getSignal">getSignal</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getStartTime" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getStartTime">getStartTime</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getStartTimeInMinutes" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getStartTimeInMinutes">getStartTimeInMinutes</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getUSBConfig" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getUSBConfig">getUSBConfig</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getVersion" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getVersion">getVersion</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getZNormSignal" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getZNormSignal">getZNormSignal</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.getpASignal" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.getpASignal">getpASignal</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isAutoUpdated" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.isAutoUpdated">isAutoUpdated</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isBarcodingEnabled" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.isBarcodingEnabled">isBarcodingEnabled</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isBreamStandard" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.isBreamStandard">isBreamStandard</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isLocalBasecalled" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.isLocalBasecalled">isLocalBasecalled</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.isOpen" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.isOpen">isOpen</a></code></li>
+<li><code><a title="read5.AbstractFileReader.AbstractFileReader.open" href="AbstractFileReader.html#read5.AbstractFileReader.AbstractFileReader.open">open</a></code></li>
 </ul>
 </li>
 </ul>

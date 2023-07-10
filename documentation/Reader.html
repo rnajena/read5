@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.1" />
-<title>read5.read5 API documentation</title>
+<title>read5.Reader API documentation</title>
 <meta name="description" content="" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
@@ -17,7 +17,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>read5.read5</code></h1>
+<h1 class="title">Module <code>read5.Reader</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
@@ -35,7 +35,7 @@ from read5.Fast5Reader import Fast5Reader
 from read5.Pod5Reader import Pod5Reader
 from read5.Slow5Reader import Slow5Reader
 
-def read5(filepath : str) -&gt; Fast5Reader | Slow5Reader | Pod5Reader:
+def read(filepath : str):
     &#39;&#39;&#39;
     Autodetect file format using extension.
     Raises UnknownFormatException if format is unknown.
@@ -49,7 +49,7 @@ def read5(filepath : str) -&gt; Fast5Reader | Slow5Reader | Pod5Reader:
         return Fast5Reader(filepath)
     elif filepath.lower().endswith(&#39;.slow5&#39;) or filepath.lower().endswith(&#39;.blow5&#39;):
         return Slow5Reader(filepath=filepath)
-    elif filepath.lower().endswith(&#39;pod5&#39;):
+    elif filepath.lower().endswith(&#39;.pod5&#39;):
         return Pod5Reader(filepath)
     else:
         raise UnknownFileFormatException(f&#39;Unknown file format: {filepath.split(&#34;.&#34;)[-1]}&#39;)</code></pre>
@@ -62,8 +62,8 @@ def read5(filepath : str) -&gt; Fast5Reader | Slow5Reader | Pod5Reader:
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="read5.read5.read5"><code class="name flex">
-<span>def <span class="ident">read5</span></span>(<span>filepath: str) -> <a title="read5.Fast5Reader.Fast5Reader" href="Fast5Reader.html#read5.Fast5Reader.Fast5Reader">Fast5Reader</a> | <a title="read5.Slow5Reader.Slow5Reader" href="Slow5Reader.html#read5.Slow5Reader.Slow5Reader">Slow5Reader</a> | <a title="read5.Pod5Reader.Pod5Reader" href="Pod5Reader.html#read5.Pod5Reader.Pod5Reader">Pod5Reader</a></span>
+<dt id="read5.Reader.read"><code class="name flex">
+<span>def <span class="ident">read</span></span>(<span>filepath: str)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Autodetect file format using extension.
@@ -77,7 +77,7 @@ Raises UnknownFormatException if format is unknown.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read5(filepath : str) -&gt; Fast5Reader | Slow5Reader | Pod5Reader:
+<pre><code class="python">def read(filepath : str):
     &#39;&#39;&#39;
     Autodetect file format using extension.
     Raises UnknownFormatException if format is unknown.
@@ -91,7 +91,7 @@ Raises UnknownFormatException if format is unknown.</p>
         return Fast5Reader(filepath)
     elif filepath.lower().endswith(&#39;.slow5&#39;) or filepath.lower().endswith(&#39;.blow5&#39;):
         return Slow5Reader(filepath=filepath)
-    elif filepath.lower().endswith(&#39;pod5&#39;):
+    elif filepath.lower().endswith(&#39;.pod5&#39;):
         return Pod5Reader(filepath)
     else:
         raise UnknownFileFormatException(f&#39;Unknown file format: {filepath.split(&#34;.&#34;)[-1]}&#39;)</code></pre>
@@ -115,7 +115,7 @@ Raises UnknownFormatException if format is unknown.</p>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="read5.read5.read5" href="#read5.read5.read5">read5</a></code></li>
+<li><code><a title="read5.Reader.read" href="#read5.Reader.read">read</a></code></li>
 </ul>
 </li>
 </ul>
