@@ -1,0 +1,9 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Spangenberg
+    given-names: Jannes
+    orcid: https://orcid.org/0000-0002-6126-411X
+title: JannesSP/read5: 1.0.0
+version: 1.0.0
+date-released: 2023-07-11
