@@ -7,7 +7,7 @@ Read5 is a python wrapper to read fast5, slow5/blow5 and pod5 files using the sa
 [![Anaconda-Server Badge](https://anaconda.org/jannessp/read5/badges/version.svg)](https://anaconda.org/jannessp/read5) ![Conda](https://img.shields.io/conda/dn/jannessp/read5)
 [![Conda package](https://anaconda.org/jannessp/read5/badges/latest_release_date.svg)](https://anaconda.org/jannessp/read5) [![Conda package](https://anaconda.org/jannessp/read5/badges/platforms.svg)](https://anaconda.org/jannessp/read5)
  
-[![DOI](https://zenodo.org/badge/8134253.svg)](https://zenodo.org/record/8134253)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8134253.svg)](https://doi.org/10.5281/zenodo.8134253)
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/Ja_Spangenberg)](https://twitter.com/Ja_Spangenberg)
 ___
