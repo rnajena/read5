@@ -107,7 +107,7 @@ class Fast5Reader(AbstractFileReader):
         except:
             return np.nan
         
-    def getPredictedScaling(self, readid : str) -> tuple[float, float]:
+    def getPredictedScaling(self, readid : str) -> tuple:
         '''
         Shift and Scale for predicted read scaling values (based on this read's raw signal)
 

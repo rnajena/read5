@@ -267,7 +267,7 @@ class Pod5Reader(AbstractFileReader):
     def getPoreType(self, readid : str) -> str:
         return self.getPoreObject(readid).pore_type
     
-    def getPredictedScaling(self, readid : str) -> tuple[float, float]:
+    def getPredictedScaling(self, readid : str) -> tuple:
         '''
         Shift and Scale for predicted read scaling values (based on this read's raw signal)
 
