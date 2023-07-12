@@ -4,8 +4,9 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from read5.AbstractFileReader import *
+from .AbstractFileReader import AbstractFileReader
 import h5py
+import numpy as np
 
 class Fast5Reader(AbstractFileReader):
     '''

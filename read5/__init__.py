@@ -2,11 +2,16 @@ from ._version import get_versions
 __version__ = get_versions()['version']
 del get_versions
 
-from . import Reader
-from . import Fast5Reader
-from . import Pod5Reader
-from . import Slow5Reader
+from .Reader import read
+from .Fast5Reader import Fast5Reader
+from .Pod5Reader import Pod5Reader
+from .Slow5Reader import Slow5Reader
 from . import Exceptions
-from . import AbstractFileReader
 
-__all__ = ["Reader", "Fast5Reader", "Pod5Reader", "Slow5Reader", "Exceptions", "AbstractFileReader"]
+__all__ = [
+    "read",
+    "Fast5Reader",
+    "Pod5Reader",
+    "Slow5Reader",
+    "Exceptions"
+]
