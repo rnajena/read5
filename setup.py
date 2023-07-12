@@ -11,11 +11,15 @@ requirements = [
     'pod5>=0.2.3', # currently only avaible via pipy
 ]
 
+with open("README.rst", "r") as rst:
+    long_description = rst.read()
+
 setup(
     name='read5',
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     description="Wrapper to read fast5, slow5, blow5 and pod5 files.",
+    long_description=long_description,
     license="GNU General Public License v3",
     author="Jannes Spangenberg",
     author_email='jannes.spangenberg@uni-jena.de',
