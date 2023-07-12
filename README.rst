@@ -1,12 +1,25 @@
 Installation
 ------------
 
-Pod5 is not available via conda (27.06.2023). Read5 Currently available
-via pipy.
+Pypi/pip
+~~~~~~~~
 
 .. code:: bash
 
    pip install read5
+
+Conda
+~~~~~
+
+Pod5 is currently not available via conda (27.06.2023). Please install
+it using pip in your conda environment.
+
+.. code:: bash
+
+   conda install mamba
+   mamba create -n read5 -c jannessp read5
+   conda activate read5
+   pip install pod5 # needed as no pod5 conda package available yet
 
 --------------
 
@@ -20,6 +33,7 @@ function. <https://jannessp.github.io/read5.github.io/>`__
 the file format depending on the file extension.
 
 Small example:
+~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -35,6 +49,9 @@ Small example:
 
    readid_list = r5.getReads()
 
+File Reader Classes
+~~~~~~~~~~~~~~~~~~~
+
 If you want to use the file readers you can import the corresponding
 class like this:
 
@@ -43,6 +60,25 @@ class like this:
    from read5.Fast5Reader import Fast5Reader # contains the Fast5 Reader class
    from read5.Slow5Reader import Slow5Reader # contains the Slow5 Reader class
    from read5.Pod5Reader import Pod5Reader # contains the Pod5 Reader class
+
+Abstract File Reader Class
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   from read5.AbstractFileReader import AbstractFileReader
+
+Possible Exceptions
+~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+   from read5.Exceptions import UnknownFileFormatException, UnknownNormalizationMode
+
+-  UnknownFileFormatException: is raised, when the file extension does
+   not match one of [‘.fast5’, ‘.slow5’, ‘.blow5’, ‘pod5’]
+-  UnknownNormalizationMode: is raised, when an unknown mode is provided
+   for the signal normalization function
 
 Full Documentation
 ------------------
