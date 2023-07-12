@@ -19,13 +19,10 @@ ___
 ## Installation
 
 Pod5 is not available via conda (27.06.2023).
+Read5 Currently available via pipy.
 
 ```bash
-conda install mamba
-
-mamba create -n read5 -c jannessp read5
-conda activate read5
-pip install pod5
+pip install read5
 ```
 ___
 ## Usage
@@ -37,7 +34,7 @@ ___
 Small example:
 
 ```python
-from read5.Reader import read
+from read5 import read # or from read5.Reader import read
 
 r5 = read(my_file) # file with on of these extensions: .fast5, .slow5, .blow5, .pod5
 for readid in r5:
@@ -48,6 +45,14 @@ for readid in r5:
     runid = r5.getSampleID(readid)
 
 readid_list = r5.getReads()
+```
+
+If you want to use the file readers you can import the corresponding class like this:
+
+```python
+from read5.Fast5Reader import Fast5Reader # contains the Fast5 Reader class
+from read5.Slow5Reader import Slow5Reader # contains the Slow5 Reader class
+from read5.Pod5Reader import Pod5Reader # contains the Pod5 Reader class
 ```
 
 ## Full Documentation
