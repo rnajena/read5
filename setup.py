@@ -1,14 +1,23 @@
 from setuptools import setup, find_packages
 import versioneer
 
+# conda
+# requirements = [
+#     'python',
+#     'h5py>=3.8',
+#     'ont_vbz_hdf_plugin>=1.0',
+#     'pyslow5>=1.0.0',
+#     'numpy>=1.20',
+# ]
+
+# pipy
 requirements = [
-    # package requirements go here
+    'python>=3.8,<3.11',
     'h5py>=3.0',
-    # 'ont_vbz_hdf_plugin>=1.0',
-    'vbz-h5py-plugin>=1.0', # same as ont_vbz but in pipy
-    'pyslow5>=1.0',
-    'numpy',
-    'pod5>=0.2.3', # currently only avaible via pipy
+    'vbz-h5py-plugin>=1.0',
+    'pyslow5>=1.0.0',
+    'numpy>=1.20',
+    'pod5>=0.2.3',
 ]
 
 with open("README.rst", "r") as rst:
@@ -28,12 +37,14 @@ setup(
     install_requires=requirements,
     keywords=['read5', 'slow5', 'blow5', 'fast5', 'pod5', 'ONT', 'Oxford Nanopore Technologies', 'Nanopore', 'raw data', 'wrapper'],
     classifiers=[
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
+        'Intended Audience :: Science/Research',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
+        'Topic :: Scientific/Engineering :: Bio-Informatics',
     ]
 )

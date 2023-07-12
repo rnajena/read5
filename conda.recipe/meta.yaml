@@ -10,29 +10,31 @@ source:
 build:
   # If the installation is complex, or different between Unix and Windows, use
   # separate bld.bat and build.sh files instead of this key.  Add the line
-  skip: true # [py<38]
-  skip: true # [win]
+  # skip: true # [py<38]
+  # skip: true # [win]
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -v .
+  # script: python3 setup.py sdist bdist_wheel
 
 requirements:
   host:
-    - python>=3.8
+    - python
     - pip
-    - setuptools
   run:
-    - python>=3.8
-    # dependencies are defined in setup.py
-    {% for dep in data['install_requires'] %}
-    - {{ dep.lower() }}
-    {% endfor %}
+    - python
+    - pyslow5 >=1.0
+    - numpy >=1.20
+    - h5py >=3.8
+    - ont_vbz_hdf_plugin >=1.0
+    # - pod5 >=0.2.3 # currently not available in conda
 
-# TODO: Activate tests when pod5 is available via conda!
+# TODO enable when pod available via conda
 # test:
 #   source_files:
 #     - tests
+#   imports:
+#     - read5
 #   requires:
 #     - pytest
-#     - pytest-cov
 #   commands:
 #     - pytest
 
@@ -43,3 +45,7 @@ about:
   license_file: LICENSE
   doc_url: https://github.com/JannesSP/read5.github.io
   dev_url: {{ data['url'] }}
+
+extra:
+  recipe-maintainers:
+    - JannesSP

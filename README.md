@@ -3,11 +3,12 @@
 Read5 is a python wrapper to read fast5, slow5/blow5 and pod5 files using the same overloaded functions from different APIs.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-teal.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![Python3](https://img.shields.io/badge/Language-Python_3-darkred.svg)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/read5)
 
-[![PyPI version](https://badge.fury.io/py/read5.svg)](https://badge.fury.io/py/read5)
+[![PyPI version](https://badge.fury.io/py/read5.svg)](https://badge.fury.io/py/read5) ![PyPI - Downloads](https://img.shields.io/pypi/dm/read5) ![PyPI - Status](https://img.shields.io/pypi/status/read5)
 
-<!-- ![conda](https://img.shields.io/badge/Uses-conda-green.svg) [![Anaconda-Server Badge](https://anaconda.org/jannessp/read5/badges/version.svg)](https://anaconda.org/jannessp/read5) ![Conda](https://img.shields.io/conda/dn/jannessp/read5) [![Conda package](https://anaconda.org/jannessp/read5/badges/latest_release_date.svg)](https://anaconda.org/jannessp/read5) [![Conda package](https://anaconda.org/jannessp/read5/badges/platforms.svg)](https://anaconda.org/jannessp/read5) -->
+
+[![Anaconda-Server Badge](https://anaconda.org/jannessp/read5/badges/version.svg)](https://anaconda.org/jannessp/read5) ![Conda](https://img.shields.io/conda/dn/jannessp/read5) [![Conda package](https://anaconda.org/jannessp/read5/badges/latest_release_date.svg)](https://anaconda.org/jannessp/read5) [![Conda package](https://anaconda.org/jannessp/read5/badges/platforms.svg)](https://anaconda.org/jannessp/read5)
  
 [![DOI](https://zenodo.org/badge/633012569.svg)](https://zenodo.org/badge/latestdoi/633012569)
 
@@ -20,11 +21,17 @@ ___
 ___
 ## Installation
 
-Pod5 is not available via conda (27.06.2023).
-Read5 Currently available via pipy.
-
+### Pypi/pip
 ```bash
 pip install read5
+```
+### Conda
+Pod5 is currently not available via conda (27.06.2023). Please install it using pip in your conda environment.
+```bash
+conda install mamba
+mamba create -n read5 -c jannessp read5
+conda activate read5
+pip install pod5 # needed as no pod5 conda package available yet
 ```
 ___
 ## Usage
@@ -33,7 +40,7 @@ ___
 
 *my_file* can be a fast5, slow5, blow5 or pod5 file. The wrapper detects the file format depending on the file extension.
 
-Small example:
+### Small example:
 
 ```python
 from read5 import read # or from read5.Reader import read
@@ -49,6 +56,7 @@ for readid in r5:
 readid_list = r5.getReads()
 ```
 
+### File Reader Classes
 If you want to use the file readers you can import the corresponding class like this:
 
 ```python
@@ -56,6 +64,21 @@ from read5.Fast5Reader import Fast5Reader # contains the Fast5 Reader class
 from read5.Slow5Reader import Slow5Reader # contains the Slow5 Reader class
 from read5.Pod5Reader import Pod5Reader # contains the Pod5 Reader class
 ```
+
+### Abstract File Reader Class
+
+```python
+from read5.AbstractFileReader import AbstractFileReader
+```
+
+### Possible Exceptions
+
+```python
+from read5.Exceptions import UnknownFileFormatException, UnknownNormalizationMode
+```
+
+- UnknownFileFormatException: is raised, when the file extension does not match one of ['.fast5', '.slow5', '.blow5', 'pod5']
+- UnknownNormalizationMode: is raised, when an unknown mode is provided for the signal normalization function
 
 ## Full Documentation
 Created with [pdoc3](https://pdoc3.github.io/pdoc/).
