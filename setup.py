@@ -1,16 +1,14 @@
-# SETUP FOR CONDA
-
 from setuptools import setup, find_packages
 import versioneer
 
 requirements = [
     # package requirements go here
     'h5py>=3.0',
-    'ont_vbz_hdf_plugin>=1.0',
-    # 'vbz-h5py-plugin>=1.0', # same as ont_vbz but in pipy
+    # 'ont_vbz_hdf_plugin>=1.0',
+    'vbz-h5py-plugin>=1.0', # same as ont_vbz but in pipy
     'pyslow5>=1.0',
     'numpy',
-    # 'pod5>=0.2.3', # currently only avaible via pipy
+    'pod5>=0.2.3', # currently only avaible via pipy
 ]
 
 with open("README.md", "r") as fh:
