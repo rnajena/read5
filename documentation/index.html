@@ -28,14 +28,11 @@
 __version__ = get_versions()[&#39;version&#39;]
 del get_versions
 
-from . import Reader
-from . import Fast5Reader
-from . import Pod5Reader
-from . import Slow5Reader
-from . import Exceptions
-from . import AbstractFileReader
+from read5.Reader import read
 
-__all__ = [&#34;Reader&#34;, &#34;Fast5Reader&#34;, &#34;Pod5Reader&#34;, &#34;Slow5Reader&#34;, &#34;Exceptions&#34;, &#34;AbstractFileReader&#34;]</code></pre>
+__all__ = [
+    &#34;read&#34;
+]</code></pre>
 </details>
 </section>
 <section>
@@ -70,6 +67,44 @@ __all__ = [&#34;Reader&#34;, &#34;Fast5Reader&#34;, &#34;Pod5Reader&#34;, &#34;S
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="read5.read"><code class="name flex">
+<span>def <span class="ident">read</span></span>(<span>filepath: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Autodetect file format using extension.
+Raises UnknownFormatException if format is unknown.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>FileReader</code></dt>
+<dd>FileReader object of the detected file format</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(filepath : str):
+    &#39;&#39;&#39;
+    Autodetect file format using extension.
+    Raises UnknownFormatException if format is unknown.
+
+    Returns
+    -------
+    FileReader
+        FileReader object of the detected file format
+    &#39;&#39;&#39;
+    if filepath.lower().endswith(&#39;.fast5&#39;):
+        return Fast5Reader(filepath)
+    elif filepath.lower().endswith(&#39;.slow5&#39;) or filepath.lower().endswith(&#39;.blow5&#39;):
+        return Slow5Reader(filepath=filepath)
+    elif filepath.lower().endswith(&#39;.pod5&#39;):
+        return Pod5Reader(filepath)
+    else:
+        raise UnknownFileFormatException(f&#39;Unknown file format: {filepath.split(&#34;.&#34;)[-1]}&#39;)</code></pre>
+</details>
+</dd>
+</dl>
 </section>
 <section>
 </section>
@@ -88,6 +123,11 @@ __all__ = [&#34;Reader&#34;, &#34;Fast5Reader&#34;, &#34;Pod5Reader&#34;, &#34;S
 <li><code><a title="read5.Pod5Reader" href="Pod5Reader.html">read5.Pod5Reader</a></code></li>
 <li><code><a title="read5.Reader" href="Reader.html">read5.Reader</a></code></li>
 <li><code><a title="read5.Slow5Reader" href="Slow5Reader.html">read5.Slow5Reader</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="read5.read" href="#read5.read">read</a></code></li>
 </ul>
 </li>
 </ul>

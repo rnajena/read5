@@ -30,8 +30,9 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from read5.AbstractFileReader import *
+from read5.AbstractFileReader import AbstractFileReader
 import h5py
+import numpy as np
 
 class Fast5Reader(AbstractFileReader):
     &#39;&#39;&#39;
@@ -132,7 +133,7 @@ class Fast5Reader(AbstractFileReader):
         except:
             return np.nan
         
-    def getPredictedScaling(self, readid : str) -&gt; tuple[float, float]:
+    def getPredictedScaling(self, readid : str) -&gt; tuple:
         &#39;&#39;&#39;
         Shift and Scale for predicted read scaling values (based on this read&#39;s raw signal)
 
@@ -521,7 +522,7 @@ class Fast5Reader(AbstractFileReader):
         except:
             return np.nan
         
-    def getPredictedScaling(self, readid : str) -&gt; tuple[float, float]:
+    def getPredictedScaling(self, readid : str) -&gt; tuple:
         &#39;&#39;&#39;
         Shift and Scale for predicted read scaling values (based on this read&#39;s raw signal)
 
@@ -931,7 +932,7 @@ class Fast5Reader(AbstractFileReader):
 </details>
 </dd>
 <dt id="read5.Fast5Reader.Fast5Reader.getPredictedScaling"><code class="name flex">
-<span>def <span class="ident">getPredictedScaling</span></span>(<span>self, readid: str) -> tuple[float, float]</span>
+<span>def <span class="ident">getPredictedScaling</span></span>(<span>self, readid: str) -> tuple</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Shift and Scale for predicted read scaling values (based on this read's raw signal)</p>
@@ -942,7 +943,7 @@ class Fast5Reader(AbstractFileReader):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def getPredictedScaling(self, readid : str) -&gt; tuple[float, float]:
+<pre><code class="python">def getPredictedScaling(self, readid : str) -&gt; tuple:
     &#39;&#39;&#39;
     Shift and Scale for predicted read scaling values (based on this read&#39;s raw signal)
 
