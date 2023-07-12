@@ -10,7 +10,9 @@ source:
 build:
   # If the installation is complex, or different between Unix and Windows, use
   # separate bld.bat and build.sh files instead of this key.  Add the line
-  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -vv .
+  skip: true # [py<38]
+  skip: true # [win]
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -v .
 
 requirements:
   host:
