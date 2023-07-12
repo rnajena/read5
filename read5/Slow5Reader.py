@@ -4,7 +4,7 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from .AbstractFileReader import AbstractFileReader
+from read5.AbstractFileReader import AbstractFileReader
 import pyslow5
 import numpy as np
 
