@@ -33,6 +33,12 @@ mamba create -n read5 -c jannessp read5
 conda activate read5
 pip install pod5 # needed as no pod5 conda package available yet
 ```
+Alternatively you can create the environment using the [conda.recipe/env.yml](conda.recipe/env.yml) file.
+```bash
+conda install mamba
+mamba env create -f conda.recipe/env.yml
+conda activate read5
+```
 ___
 ## Usage
 
