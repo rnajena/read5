@@ -8,12 +8,7 @@ source:
   path: ../
 
 build:
-  # If the installation is complex, or different between Unix and Windows, use
-  # separate bld.bat and build.sh files instead of this key.  Add the line
-  # skip: true # [py<38]
-  # skip: true # [win]
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -v .
-  # script: python3 setup.py sdist bdist_wheel
 
 requirements:
   host:
@@ -27,16 +22,16 @@ requirements:
     - ont_vbz_hdf_plugin >=1.0
     # - pod5 >=0.2.3 # currently not available in conda
 
-# TODO enable when pod available via conda
-# test:
-#   source_files:
-#     - tests
-#   imports:
-#     - read5
-#   requires:
-#     - pytest
-#   commands:
-#     - pytest
+test:
+  source_files:
+    - tests
+  imports:
+    - read5
+  requires:
+    - pytest
+  commands:
+    - pip install pod5
+    - pytest
 
 about:
   home: {{ data['url'] }}
