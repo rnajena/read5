@@ -984,3 +984,11 @@ class AbstractFileReader():
             start of sequencing converted to minutes after sequencing start
         '''
         return self.getStartTime(readid) / self.getSamplingRate(readid) / 60
+    
+    def getFilePath(self) -> str:
+        '''
+        Returns
+        -------
+        filepath : str
+        '''
+        return self._filepath
