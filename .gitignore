@@ -60,3 +60,4 @@ target/
 
 # pyenv python configuration file
 .python-version
+conda.recipe/meta_use_pip_tar.yaml
