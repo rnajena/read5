@@ -1,16 +1,6 @@
 from setuptools import setup, find_packages
 import versioneer
 
-# conda
-# requirements = [
-#     'python',
-#     'h5py>=3.8',
-#     'ont_vbz_hdf_plugin>=1.0',
-#     'pyslow5>=1.0.0',
-#     'numpy>=1.20',
-# ]
-
-# pipy
 requirements = [
     'python>=3.8,<3.11',
     'h5py>=3.0',
