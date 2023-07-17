@@ -2,7 +2,6 @@ from setuptools import setup, find_packages
 import versioneer
 
 requirements = [
-    'python>=3.8,<3.11',
     'h5py>=3.0',
     'vbz-h5py-plugin>=1.0',
     'pyslow5>=1.0.0',
@@ -24,6 +23,7 @@ setup(
     author_email='jannes.spangenberg@uni-jena.de',
     url='https://github.com/JannesSP/read5',
     packages=find_packages(),
+    python_requires='>=3.8,<3.11',
     install_requires=requirements,
     keywords=['read5', 'slow5', 'blow5', 'fast5', 'pod5', 'ONT', 'Oxford Nanopore Technologies', 'Nanopore', 'raw data', 'wrapper'],
     classifiers=[
