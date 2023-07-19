@@ -20,7 +20,7 @@ requirements:
     - numpy >=1.20
     - h5py >=3.8
     - ont_vbz_hdf_plugin >=1.0
-    # - pod5 >=0.2.3 # currently not available in conda
+    - pod5 >=0.2.3
 
 test:
   source_files:
@@ -28,7 +28,6 @@ test:
   requires:
     - pytest
   commands:
-    - pip install pod5
     - pytest
 
 about:
@@ -132,3 +131,4 @@ about:
 extra:
   recipe-maintainers:
     - 38325576
+    - JannesSP
