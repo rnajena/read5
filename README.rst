@@ -11,15 +11,13 @@ Pypi/pip
 Conda
 ~~~~~
 
-Pod5 is currently not available via conda (27.06.2023). Please install
-it using pip in your conda environment.
+Pod5 is now available via `conda <https://anaconda.org/jannessp/pod5>`__ (19.07.2023).
 
 .. code:: bash
 
    conda install mamba
    mamba create -n read5 -c jannessp read5
    conda activate read5
-   pip install pod5 # needed as no pod5 conda package available yet
 
 Alternatively you can create the environment using the
 `conda.recipe/env.yml <conda.recipe/env.yml>`__ file.
