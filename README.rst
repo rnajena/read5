@@ -48,11 +48,12 @@ Small example:
 
    r5 = read(my_file) # file with on of these extensions: .fast5, .slow5, .blow5, .pod5
    for readid in r5:
-       signal = r5.getSignal(readid)
+       signal = r5.getSignal(readid) # returns raw integer values stored in the file
+       pA_signal = r5.getpASignal(readid) # returns pA signal
        norm_signal = r5.getZNormSignal(readid) # returns normalised read signal: norm_signal = (signal - median(signal)) / mad(signal)
        channel = r5.getChannelNumber(readid)
        sampleid = r5.getSampleID(readid)
-       runid = r5.getSampleID(readid)
+       runid = r5.getRunID(readid)
 
    readid_list = r5.getReads()
 
