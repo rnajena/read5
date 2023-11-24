@@ -4,9 +4,9 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from read5.Exceptions import UnknownFileFormatException
-from read5.Fast5Reader import Fast5Reader
-from read5.Pod5Reader import Pod5Reader
+from read5_ont.Exceptions import UnknownFileFormatException
+from read5_ont.Fast5Reader import Fast5Reader
+from read5_ont.Pod5Reader import Pod5Reader
 
 def read(filepath : str):
     '''

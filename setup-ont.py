@@ -12,7 +12,7 @@ with open("README-ont.rst", "r") as rst:
     long_description = rst.read()
 
 setup(
-    name='read5-ont',
+    name='read5_ont',
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     description="Wrapper to read fast5 and pod5 files.",
@@ -21,7 +21,7 @@ setup(
     author="Jannes Spangenberg",
     author_email='jannes.spangenberg@uni-jena.de',
     url='https://github.com/JannesSP/read5',
-    packages=find_packages('read5-ont'),
+    packages=find_packages('read5_ont'),
     python_requires='>=3.8',
     install_requires=requirements,
     keywords=['read5', 'fast5', 'pod5', 'ONT', 'Oxford Nanopore Technologies', 'Nanopore', 'raw data', 'wrapper'],

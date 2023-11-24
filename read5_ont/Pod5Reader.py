@@ -5,7 +5,7 @@
 # website: https://jannessp.github.io
 
 import uuid
-from read5.AbstractFileReader import AbstractFileReader
+from read5_ont.AbstractFileReader import AbstractFileReader
 import pod5
 import datetime
 import numpy as np

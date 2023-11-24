@@ -6,7 +6,7 @@ Pypi/pip
 
 .. code:: bash
 
-   pip install read5-ont
+   pip install read5_ont
 
 Conda
 ~~~~~
@@ -16,8 +16,8 @@ Pod5 is now available via `conda <https://anaconda.org/jannessp/pod5>`__ (19.07.
 .. code:: bash
 
    conda install mamba
-   mamba create -n read5-ont -c jannessp read5-ont
-   conda activate read5-ont
+   mamba create -n read5_ont -c jannessp read5_ont
+   conda activate read5_ont
 
 Alternatively you can create the environment using the
 `conda.recipe/env.yml <conda.recipe/env.yml>`__ file.
@@ -26,7 +26,7 @@ Alternatively you can create the environment using the
 
    conda install mamba
    mamba env create -f conda.recipe/env.yml
-   conda activate read5-ont
+   conda activate read5_ont
 
 --------------
 

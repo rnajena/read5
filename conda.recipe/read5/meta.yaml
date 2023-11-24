@@ -1,4 +1,4 @@
-{% set data = load_setup_py_data('../../setup.py') %}
+{% set data = load_setup_py_data(setup_file="setup.py") %}
 
 package:
   name: read5
@@ -24,7 +24,7 @@ requirements:
 
 test:
   source_files:
-    - tests
+    - tests/read5
   requires:
     - pytest
   commands:
