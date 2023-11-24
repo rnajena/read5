@@ -21,7 +21,7 @@ setup(
     author="Jannes Spangenberg",
     author_email='jannes.spangenberg@uni-jena.de',
     url='https://github.com/JannesSP/read5',
-    packages=find_packages(),
+    packages=find_packages(include='read5_ont', exclude='read5'),
     python_requires='>=3.8',
     install_requires=requirements,
     keywords=['read5', 'fast5', 'pod5', 'ONT', 'Oxford Nanopore Technologies', 'Nanopore', 'raw data', 'wrapper'],
