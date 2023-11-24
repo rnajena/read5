@@ -298,7 +298,7 @@ class AbstractFileReader():
     def getEndReason(self, readid : str) -> int:
         '''
         Available since FAST5 v2.2
-        ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!
+        ATTENTION: End Reason encoding differs: fast5 vs pod5!
 
         Returns
         -------

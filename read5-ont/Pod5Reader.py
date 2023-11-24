@@ -106,7 +106,7 @@ class Pod5Reader(AbstractFileReader):
 
     def getEndReason(self, readid: str) -> int:
         '''
-        ATTENTION: End Reason encoding differs: fast5/slow5/blow5 vs pod5!
+        ATTENTION: End Reason encoding differs: fast5 vs pod5!
 
         Returns
         -------
