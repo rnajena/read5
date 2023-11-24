@@ -1,4 +1,4 @@
-{% set data = load_setup_py_data() %}
+{% set data = load_setup_py_data('../../setup.py') %}
 
 package:
   name: read5
@@ -8,7 +8,6 @@ source:
   path: ../../
 
 build:
-  skip: true  # [py<311]
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -v .
 
 requirements:
