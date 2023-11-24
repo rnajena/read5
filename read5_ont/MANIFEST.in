@@ -1,0 +1,2 @@
+include versioneer.py
+graft tests
