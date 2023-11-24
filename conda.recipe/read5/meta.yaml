@@ -1,11 +1,11 @@
-{% set data = load_setup_py_data() %}
+{% set data = load_setup_py_data(setup_file="setup.py") %}
 
 package:
   name: read5
   version: {{ data['version'] }}
 
 source:
-  path: ../../read5
+  path: ../../
 
 build:
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -v .
