@@ -1,7 +1,7 @@
 # ![Alt text](figures/logo.png)
 
-- **Read5** is a python wrapper to read fast5, slow5/blow5 and pod5 files using the same overloaded functions from different APIs. ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/read5)
-- **Read5_ont** is a python wrapper to read fast5 and pod5 files using the same overloaded functions from different APIs. ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/read5_ont)
+- [**Read5**](https://github.com/JannesSP/read5) is a python wrapper to read fast5, slow5/blow5 and pod5 files using the same overloaded functions from different APIs. ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/read5)
+- [**Read5_ont**](https://github.com/JannesSP/read5_ont) is a python wrapper to read fast5 and pod5 files using the same overloaded functions from different APIs. ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/read5_ont)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-teal.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
