@@ -42,8 +42,8 @@ def get_config():
     cfg.VCS = "git"
     cfg.style = ""
     cfg.tag_prefix = ""
-    cfg.parentdir_prefix = "Read5-"
-    cfg.versionfile_source = "read5/_version.py"
+    cfg.parentdir_prefix = "Read5_ont-"
+    cfg.versionfile_source = "read5_ont/_version.py"
     cfg.verbose = False
     return cfg
 
