@@ -8,7 +8,7 @@ requirements = [
     'pod5>=0.2.3',
 ]
 
-with open("README.rst", "r") as rst:
+with open("README-ont.rst", "r") as rst:
     long_description = rst.read()
 
 setup(
