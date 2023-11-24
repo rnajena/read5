@@ -1,14 +1,13 @@
 {% set data = load_setup_py_data() %}
 
 package:
-  name: read5
+  name: read5-ont
   version: {{ data['version'] }}
 
 source:
   path: ../
 
 build:
-  skip: true  # [py<311]
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -v .
 
 requirements:
@@ -17,7 +16,6 @@ requirements:
     - pip
   run:
     - python
-    - pyslow5 >=1.0
     - numpy >=1.20
     - h5py >=3.8
     - ont_vbz_hdf_plugin >=1.0
@@ -33,13 +31,13 @@ test:
 
 about:
   home: {{ data['url'] }}
-  summary: Wrapper to read fast5, slow5, blow5 and pod5 files.
+  summary: Wrapper to read fast5 and pod5 files.
   license: {{ data['license'] }}
   license_file: LICENSE
   doc_url: https://github.com/JannesSP/read5.github.io
   dev_url: {{ data['url'] }}
   description: |
-    Read5 is a python wrapper to read fast5, slow5/blow5 and pod5 files using the same overloaded functions from different APIs.
+    Read5-ont is a python wrapper to read fast5 and pod5 files using the same overloaded functions from different APIs.
 
     [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-teal.svg)](https://www.gnu.org/licenses/gpl-3.0)
     ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/read5)
@@ -62,35 +60,35 @@ about:
 
     ### Pypi/pip
     ```bash
-    pip install read5
+    pip install read5-ont
     ```
     ### Conda
     Pod5 is currently not available via conda (27.06.2023). Please install it using pip in your conda environment.
     ```bash
     conda install mamba
-    mamba create -n read5 -c jannessp read5
-    conda activate read5
+    mamba create -n read5-ont -c jannessp read5-ont
+    conda activate read5-ont
     pip install pod5 # needed as no pod5 conda package available yet
     ```
     Alternatively you can create the environment using the [conda.recipe/env.yml](conda.recipe/env.yml) file.
     ```bash
     conda install mamba
     mamba env create -f conda.recipe/env.yml
-    conda activate read5
+    conda activate read5-ont
     ```
     ___
     ## Usage
 
     [Click here to see a full documentation about the classes and function.](https://jannessp.github.io/read5.github.io/)
 
-    *my_file* can be a fast5, slow5, blow5 or pod5 file. The wrapper detects the file format depending on the file extension.
+    *my_file* can be a fast5 or pod5 file. The wrapper detects the file format depending on the file extension.
 
     ### Small example:
 
     ```python
     from read5 import read # or from read5.Reader import read
 
-    r5 = read(my_file) # file with on of these extensions: .fast5, .slow5, .blow5, .pod5
+    r5 = read(my_file) # file with on of these extensions: .fast5, .pod5
     for readid in r5:
         signal = r5.getSignal(readid) # returns raw integer values stored in the file
         pA_signal = r5.getpASignal(readid) # returns pA signal
@@ -107,7 +105,6 @@ about:
 
     ```python
     from read5.Fast5Reader import Fast5Reader # contains the Fast5 Reader class
-    from read5.Slow5Reader import Slow5Reader # contains the Slow5 Reader class
     from read5.Pod5Reader import Pod5Reader # contains the Pod5 Reader class
     ```
 
@@ -123,7 +120,7 @@ about:
     from read5.Exceptions import UnknownFileFormatException, UnknownNormalizationMode
     ```
 
-    - UnknownFileFormatException: is raised, when the file extension does not match one of ['.fast5', '.slow5', '.blow5', 'pod5']
+    - UnknownFileFormatException: is raised, when the file extension does not match one of ['.fast5', '.pod5']
     - UnknownNormalizationMode: is raised, when an unknown mode is provided for the signal normalization function
 
     ## Full Documentation
