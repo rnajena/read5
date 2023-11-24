@@ -1,6 +1,0 @@
-python:
-  - 3.8
-  - 3.9
-  - 3.10
-  - 3.11 # not with pyslow5 (has no 3.11 package)
-# - 3.12 # not with pod5 (has no 3.12 package)
