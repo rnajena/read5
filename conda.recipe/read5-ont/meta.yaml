@@ -5,7 +5,7 @@ package:
   version: {{ data['version'] }}
 
 source:
-  path: ../
+  path: ../../
 
 build:
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -v .
