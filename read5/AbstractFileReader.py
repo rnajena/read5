@@ -971,6 +971,32 @@ class AbstractFileReader():
             Z normalized read signal
         '''
         return (self.getpASignal(readid) - self.getShift(readid, mode)) / self.getScale(readid, mode)
+
+    def getPolyAStandardizedSignal(self, readid : str, polyAstart : int, polyAend : int) -> np.ndarray:
+        '''
+        Standardize the read signal of the provided read with the polyA.
+        This function uses the median and mad to standardize the read with the polyA signal.
+        After standardization the polyA signal will have a mean of 108.901413 and a stdev of 2.676522.
+        
+        Parameter
+        ---------
+        readid : str
+        polyAstart : int
+            included starting index of the polyA signal in the read
+        polyAend : int
+            excluded ending index of the polyA signal in the read
+
+        Returns
+        -------
+        standardizedSignal : np.ndarray
+            polyA standardized read signal
+        '''
+        stdPolyAMean = 108.901413
+        stdPolyAStdev = 2.676522
+        polyAsignal = self.getpASignal(readid)[polyAstart : polyAend]
+        polyAmedian = np.median(polyAsignal)
+        polyAmad = 1.4826 * np.median(np.abs(polyAsignal - polyAmedian))
+        return ((self.getpASignal(readid) - polyAmedian) / polyAmad) * stdPolyAStdev + stdPolyAMean
     
     def getStartTimeInMinutes(self, readid) -> float:
         '''
