@@ -51,6 +51,7 @@ Small example:
        signal = r5.getSignal(readid) # returns raw integer values stored in the file
        pA_signal = r5.getpASignal(readid) # returns pA signal
        norm_signal = r5.getZNormSignal(readid) # returns normalised read signal: norm_signal = (signal - median(signal)) / mad(signal)
+       polyAstdSignal = r5.getPolyAStandardizedSignal(readid, polyAstart, polyAend) # returns polyA standardized read signal
        channel = r5.getChannelNumber(readid)
        sampleid = r5.getSampleID(readid)
        runid = r5.getRunID(readid)
