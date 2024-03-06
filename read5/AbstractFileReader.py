@@ -972,11 +972,11 @@ class AbstractFileReader():
         '''
         return (self.getpASignal(readid) - self.getShift(readid, mode)) / self.getScale(readid, mode)
 
-    def getPolyAStandardizedSignal(self, readid : str, polyAstart : int, polyAend : int) -> np.ndarray:
+    def getPolyAStandardizedSignal(self, readid : str, polyAstart : int, polyAend : int, polyAMean : float = 108.901413, polyAStdev : float = 2.676522, mode : str = 'median') -> np.ndarray:
         '''
         Standardize the read signal of the provided read with the polyA.
-        This function uses the median and mad to standardize the read with the polyA signal.
-        After standardization the polyA signal will have a mean of 108.901413 and a stdev of 2.676522.
+        This function uses a shift and scale to standardize the read with the polyA signal.
+        After standardization the polyA signal will have by a mean of 108.901413 and a stdev of 2.676522.
         
         Parameter
         ---------
@@ -985,18 +985,27 @@ class AbstractFileReader():
             included starting index of the polyA signal in the read
         polyAend : int
             excluded ending index of the polyA signal in the read
+        polyAMean : float
+            target mean of for the standardization. default: 108.901413
+        polyAStdev : float
+            target standard deviation for the standardization. default: 2.676522
+        mode : str
+            'median' or 'mean' which shift and scale values to use for standardization
 
         Returns
         -------
         standardizedSignal : np.ndarray
-            polyA standardized read signal
+            polyA standardized read signal: ((signal - shift) / scale) * polyAStdev + polyAMean
         '''
-        stdPolyAMean = 108.901413
-        stdPolyAStdev = 2.676522
-        polyAsignal = self.getpASignal(readid)[polyAstart : polyAend]
-        polyAmedian = np.median(polyAsignal)
-        polyAmad = 1.4826 * np.median(np.abs(polyAsignal - polyAmedian))
-        return ((self.getpASignal(readid) - polyAmedian) / polyAmad) * stdPolyAStdev + stdPolyAMean
+        polyASignal = self.getpASignal(readid)[polyAstart : polyAend]
+        if mode == 'median':
+            shift = np.median(polyASignal)
+            scale = 1.4826 * np.median(np.abs(polyASignal - shift))
+        elif mode == 'mean':
+            shift = np.mean(polyASignal)
+            scale = np.std(polyASignal)
+
+        return ((self.getpASignal(readid) - shift) / scale) * polyAStdev + polyAMean
     
     def getStartTimeInMinutes(self, readid) -> float:
         '''
