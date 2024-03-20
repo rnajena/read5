@@ -859,6 +859,21 @@ class AbstractFileReader():
         '''
         pass
 
+    @abstractmethod
+    def getFirstSamplePosition(self, readid: str) -> int:
+        '''
+        Returns the first sample position. This is the first actual signal position. Returns -1 if read does not encode this position yet.
+
+        Parameter
+        ---------
+        readid : str
+
+        Returns
+        -------
+        position : int
+        '''
+        pass
+
     ### explicit functions
 
     def __init__(self, filepath : str):
