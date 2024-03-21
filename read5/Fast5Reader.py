@@ -358,6 +358,18 @@ class Fast5Reader(AbstractFileReader):
     
     def getVersion(self, readid : str) -> str:
         return self.getTrackingIDAttributes(readid)['version'].decode('utf-8')
+
+    def getFirstSamplePosition(self, readid : str) -> int:
+        segs = []
+        itm = self.__getitem__(readid)
+        for k in itm['Analyses/'].keys():
+            if 'Segmentation' in k:
+                segs.append(k)
+        if not segs:
+            return -1
+        seg = max(segs)
+        start = itm[f'Analyses/{seg}/Summary/segmentation'].attrs['first_sample_template']
+        return start
     
     ### Calculations & signal conversions
 
