@@ -23,7 +23,7 @@ setup(
     author_email='jannes.spangenberg@uni-jena.de',
     url='https://github.com/JannesSP/read5',
     packages=find_packages(),
-    python_requires='>=3.8,<3.11',
+    python_requires='>=3.8,<3.13',
     install_requires=requirements,
     keywords=['read5', 'slow5', 'blow5', 'fast5', 'pod5', 'ONT', 'Oxford Nanopore Technologies', 'Nanopore', 'raw data', 'wrapper'],
     classifiers=[
@@ -32,9 +32,7 @@ setup(
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
     ]
 )
