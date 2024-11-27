@@ -1005,6 +1005,10 @@ class AbstractFileReader():
             shift = np.mean(polyASignal)
             scale = np.std(polyASignal)
 
+        # safety check when working with simulated signals where stdev = 0
+        if scale == 0:
+            scale = 1
+
         return ((self.getpASignal(readid) - shift) / scale) * polyAStdev + polyAMean
     
     def getStartTimeInMinutes(self, readid) -> float:
