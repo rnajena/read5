@@ -3,8 +3,8 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from read5.Reader import read
-from read5.Exceptions import *
+from src.Reader import read
+from src.Exceptions import *
 import numpy as np
 import os
 

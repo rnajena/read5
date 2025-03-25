@@ -6,7 +6,7 @@
 
 from abc import abstractmethod
 import numpy as np
-from read5.Exceptions import UnknownNormalizationMode
+from src.Exceptions import UnknownNormalizationMode
 
 class AbstractFileReader():
     '''
@@ -1031,3 +1031,30 @@ class AbstractFileReader():
         filepath : str
         '''
         return self._filepath
+    
+    def __getstate__(self):
+       '''
+       Used for serializing instances.
+       Removes unpickle attributes.
+       '''
+       
+       # start with a copy so we don't accidentally modify the object state
+       # or cause other conflicts
+       state = self.__dict__.copy()
+
+       # remove unpicklable entries
+       state['_open'] = False  # File handles must be re-opened manually
+       state['_index'] = -1  # Reset iteration index
+       del state['_file']
+       state['_file'] = None
+       return state
+
+    def __setstate__(self, state):
+        """Used for deserializing"""
+        # restore the state which was picklable
+        self.__dict__.update(state)
+        
+        # restore unpicklable entries
+        self._open = False  # Ensure file is closed initially
+        self._index = -1  # Reset index
+        self.open()
