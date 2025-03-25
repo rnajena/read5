@@ -4,7 +4,7 @@
 # github: https://github.com/JannesSP
 # website: https://jannessp.github.io
 
-from src.AbstractFileReader import AbstractFileReader
+from read5.AbstractFileReader import AbstractFileReader
 import h5py
 import numpy as np
 # if installed via pip this will work and load the vbz plugin to read the signal data

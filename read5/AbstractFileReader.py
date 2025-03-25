@@ -6,7 +6,7 @@
 
 from abc import abstractmethod
 import numpy as np
-from src.Exceptions import UnknownNormalizationMode
+from read5.Exceptions import UnknownNormalizationMode
 
 class AbstractFileReader():
     '''
