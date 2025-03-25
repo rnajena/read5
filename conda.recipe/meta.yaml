@@ -1,129 +1,49 @@
-{% set data = load_setup_py_data() %}
+{% set pyproject = load_file_data('../pyproject.toml', from_recipe_dir=True) %}
+{% set version = VERSION %}
+{% set project = pyproject['project'] %}
 
 package:
   name: read5
-  version: {{ data['version'] }}
+  version: {{ version }}
 
 source:
-  path: ../
+  path: ..
 
 build:
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -v .
+  number : 0
 
 requirements:
   host:
     - python
     - pip
+    {% for dep in pyproject['build-system']['requires'] %}
+    - {{ dep.lower() }}
+    {% endfor %}
   run:
     - python
-    - pyslow5 >=1.0
-    - numpy >=1.20
-    - h5py >=3.8
-    - ont_vbz_hdf_plugin >=1.0
-    - pod5 >=0.2.3
+    {% for dep in project['dependencies'] %}
+    - {{ dep.lower() }}
+    {% endfor %}
 
 test:
   source_files:
     - tests
   requires:
-    - pytest
+    {% for dep in project['optional-dependencies']['test'] %}
+    - {{ dep.lower() }}
+    {% endfor %}
   commands:
     - pytest
 
 about:
-  home: {{ data['url'] }}
-  summary: Wrapper to read fast5, slow5, blow5 and pod5 files.
-  license: {{ data['license'] }}
+  home: {{ project['urls']['repository'] }}
+  summary: {{ project['description'] }}
+  license: {{ pyproject.get('license') }}
   license_file: LICENSE
-  doc_url: https://github.com/JannesSP/read5.github.io
-  dev_url: {{ data['url'] }}
   description: |
-    Read5 is a python wrapper to read fast5, slow5/blow5 and pod5 files using the same overloaded functions from different APIs.
-
-    [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-teal.svg)](https://www.gnu.org/licenses/gpl-3.0)
-    ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/read5)
-
-    [![PyPI](https://img.shields.io/pypi/v/read5) ![PyPI - Downloads](https://img.shields.io/pypi/dm/read5) ![PyPI - Status](https://img.shields.io/pypi/status/read5)](https://pypi.org/project/read5/)
-
-
-    [![Anaconda-Server Badge](https://anaconda.org/jannessp/read5/badges/version.svg)](https://anaconda.org/jannessp/read5) ![Conda](https://img.shields.io/conda/dn/jannessp/read5) [![Conda package](https://anaconda.org/jannessp/read5/badges/latest_release_date.svg)](https://anaconda.org/jannessp/read5) [![Conda package](https://anaconda.org/jannessp/read5/badges/platforms.svg)](https://anaconda.org/jannessp/read5)
-    
-    [![DOI](https://zenodo.org/badge/633012569.svg)](https://zenodo.org/badge/latestdoi/633012569)
-
-    [![Twitter Follow](https://img.shields.io/twitter/follow/Ja_Spangenberg)](https://twitter.com/Ja_Spangenberg)
-    ___
-    ## Table of Content
-    1.  [Installation](#installation)
-    2.  [Usage](#usage)
-    3.  [Full Documentation](https://jannessp.github.io/read5.github.io/)
-    ___
-    ## Installation
-
-    ### Pypi/pip
-    ```bash
-    pip install read5
-    ```
-    ### Conda
-    Pod5 is currently not available via conda (27.06.2023). Please install it using pip in your conda environment.
-    ```bash
-    conda install mamba
-    mamba create -n read5 -c jannessp read5
-    conda activate read5
-    ```
-    ___
-    ## Usage
-
-    [Click here to see a full documentation about the classes and function.](https://jannessp.github.io/read5.github.io/)
-
-    *my_file* can be a fast5, slow5, blow5 or pod5 file. The wrapper detects the file format depending on the file extension.
-
-    ### Small example:
-
-    ```python
-    from read5 import read # or from read5.Reader import read
-
-    r5 = read(my_file) # file with on of these extensions: .fast5, .slow5, .blow5, .pod5
-    for readid in r5:
-        signal = r5.getSignal(readid) # returns raw integer values stored in the file
-        pA_signal = r5.getpASignal(readid) # returns pA signal
-        norm_signal = r5.getZNormSignal(readid) # returns normalised read signal: norm_signal = (signal - median(signal)) / mad(signal)
-        polyAstdSignal = r5.getPolyAStandardizedSignal(readid, polyAstart, polyAend) # returns polyA standardized read signal
-        channel = r5.getChannelNumber(readid)
-        sampleid = r5.getSampleID(readid)
-        runid = r5.getRunID(readid)
-
-    readid_list = r5.getReads()
-    ```
-
-    ### File Reader Classes
-    If you want to use the file readers you can import the corresponding class like this:
-
-    ```python
-    from read5.Fast5Reader import Fast5Reader # contains the Fast5 Reader class
-    from read5.Slow5Reader import Slow5Reader # contains the Slow5 Reader class
-    from read5.Pod5Reader import Pod5Reader # contains the Pod5 Reader class
-    ```
-
-    ### Abstract File Reader Class
-
-    ```python
-    from read5.AbstractFileReader import AbstractFileReader
-    ```
-
-    ### Possible Exceptions
-
-    ```python
-    from read5.Exceptions import UnknownFileFormatException, UnknownNormalizationMode
-    ```
-
-    - UnknownFileFormatException: is raised, when the file extension does not match one of ['.fast5', '.slow5', '.blow5', 'pod5']
-    - UnknownNormalizationMode: is raised, when an unknown mode is provided for the signal normalization function
-
-    ## Full Documentation
-    Created with [pdoc3](https://pdoc3.github.io/pdoc/).
-    Can be found [here](https://jannessp.github.io/read5.github.io/).
+    {{ project['description'] }}
 
 extra:
   recipe-maintainers:
-    - 38325576
     - JannesSP

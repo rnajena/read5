@@ -1,0 +1,99 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "hatch-vcs>=0.3", "setuptools-scm>=7.1"]
+
+[project]
+authors = [
+  {name = "Jannes Spangenberg", email = "jannes.spangenberg@uni-jena.de"}
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Developers",
+]
+dependencies = [
+  "h5py>=3.0",
+  "vbz-h5py-plugin>=1.0.1",
+  "numpy>=1.20",
+  "pod5>=0.3.23",
+  "pyslow5>=1.0.0",
+]
+description = "Wrapper to read fast5 and pod5 files."
+dynamic = ["version"]
+license = {text = "GNUv3"}
+name = "read5"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-cov",
+  "mypy",
+]
+
+[project.urls]
+repository = "https://github.com/rnajena/read5"
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  # This covers both typing.TYPE_CHECKING and plain TYPE_CHECKING, with any amount of whitespace
+  "if\\s+(typing\\.)?TYPE_CHECKING:",
+  'if __name__ == "__main__":'
+]
+omit = [
+  "src/_version.py",
+  "tests/*"
+]
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src",
+  "pyproject.toml",
+  "README.rst",
+  "LICENSE"
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.mypy]
+disallow_untyped_defs = true
+files = ["src/**/*.py"]
+python_version = "3.10"
+warn_no_return = true
+
+[tool.pytest.ini_options]
+addopts = [
+  "-vv",
+  "--color=yes",
+  "--cov-append",
+  "--cov-branch",
+  "--cov-report=term-missing",
+  "--cov=src",
+  "--tb=native",
+  "--strict-markers",
+  "--durations=20"
+]
+markers = [
+  "serial: execute test serially (to avoid race conditions)",
+  "slow: tests can take a long time (deselect with '-m \"not slow\"')"
+]
+norecursedirs = [".*", "*.egg*", "build", "dist", "conda.recipe", "examples", "env", "envs", "scripts"]
