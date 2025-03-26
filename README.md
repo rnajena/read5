@@ -44,15 +44,17 @@ ___
 ```python
 from read5 import read # or from read5.Reader import read
 
-r5 = read(my_file) # file with on of these extensions: .fast5, .slow5, .blow5, .pod5
+r5 = read(my_file) # file with one of these extensions: .fast5, .slow5, .blow5, .pod5
 for readid in r5:
     signal = r5.getSignal(readid) # returns raw integer values stored in the file
     pA_signal = r5.getpASignal(readid) # returns pA signal
-    norm_signal = r5.getZNormSignal(readid) # returns normalised read signal: norm_signal = (signal - median(signal)) / mad(signal)
+    norm_signal = r5.getZNormSignal(readid) # returns normalized read signal: norm_signal = (signal - median(signal)) / mad(signal)
     polyAstdSignal = r5.getPolyAStandardizedSignal(readid, polyAstart, polyAend) # returns polyA standardized read signal
+    # default polyAMean : float = 108.901413, polyAStdev : float = 2.676522, this can be changed using the parameters
     channel = r5.getChannelNumber(readid)
     sampleid = r5.getSampleID(readid)
     runid = r5.getRunID(readid)
+    # ...
 
 readid_list = r5.getReads()
 ```
