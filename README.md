@@ -29,8 +29,7 @@ pip install read5
 Pod5 is now available via [conda](https://anaconda.org/jannessp/pod5) (19.07.2023).
 
 ```bash
-conda install mamba
-mamba create -n read5 -c jannessp read5
+conda create -n read5 -c jannessp read5
 conda activate read5
 ```
 ___
